@@ -1,0 +1,7 @@
+.arrow {
+  transition: all 100ms ease-in-out;
+}
+
+.content:hover .arrow {
+  transform: rotate(180deg);
+}

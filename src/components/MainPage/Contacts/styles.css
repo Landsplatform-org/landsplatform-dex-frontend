@@ -1,0 +1,11 @@
+.contact-background {
+  background-image: url('../../../assets/images/glass_build.jpg');
+  background-position: 15% 30%;
+  background-size: cover;
+}
+
+@media screen and (max-width: 415px) {
+  .contact-background {
+    background-position: 35% 30%;
+  }
+}

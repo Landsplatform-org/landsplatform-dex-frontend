@@ -1,0 +1,11 @@
+.title-background {
+  background-image: url('../../../assets/images/modern_build.jpg');
+  background-position: 15% 30%;
+  background-size: cover;
+}
+
+@media screen and (max-width: 415px) {
+  .title-background {
+    background-position: 35% 75%;
+  }
+}
