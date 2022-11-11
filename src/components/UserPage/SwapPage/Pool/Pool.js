@@ -2,13 +2,12 @@ import React, { useEffect, useContext, useState, memo } from "react";
 import { AiOutlineDown, AiOutlineRadiusBottomright } from "react-icons/ai";
 import { ImCross } from "react-icons/im";
 import Modal from "react-modal";
-import { UserContext } from "../../../../../../../landsplatform-dex/src/context/UserContext";
-import timeback from "../../../../assets/icons/svg-gobbler.svg";
-import gearwheel from "../../../../assets/icons/svg-goblin.svg";
+import timeback from "../../../../assets/icons/gearwheel.svg";
+import gearwheel from "../../../../assets/icons/historyclock.svg";
 import bnb from "../../../../assets/icons/binanceSmartChain.png";
 import landsicon from "../../../../assets/icons/landsPlatform_small.png";
 import { BsArrowLeft } from "react-icons/bs";
-import tokens from "../../../../../../../landsplatform-dex/src/components/UserPage/SwapPage/Swap/1InchTokens";
+import tokens from "../Swap/1InchTokens";
 import { GoPlus } from "react-icons/go";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 Modal.setAppElement(document.getElementById("root"));
@@ -160,9 +159,7 @@ const Pool = () => {
     } else {
       setData1IsShowing(true);
     }
-    };
-
-
+  };
 
   return (
     <div className="w-full flex justify-center mb-36 relative">
@@ -172,41 +169,39 @@ const Pool = () => {
           Чтобы вернуть токены, удалите ликвидность
         </h3>
         <div className="flex flex-row">
-          <button className="wallet w-[424px] bg-[#eeeeee] flex flex-row justify-between   py-1 px-4 shadow-md rounded-[25px]">
-            <div className=" flex flex-row items-center gap-1 mt-2">
-              <img src={landsicon} className="h-5" alt="landsicon" />
-              <img src={bnb} className="h-5" alt="bnb" />
-              LANDS/BNB
+          <button className="wallet w-[424px] bg-[#eeeeee] flex flex-col justify-center gap-10 py-1 px-4 shadow-md rounded-[25px]">
+            <div className=" flex flex-row justify-between">
+              <div className="flex flex-row items-center gap-1">
+                <img src={landsicon} className="h-5" alt="landsicon" />
+                <img src={bnb} className="h-5" alt="bnb" />
+                LANDS/BNB
+              </div>
+              <div className="flex flex-row gap-5">
+                <div className="flex flex-col text-right text-sm pl-[150px]">
+                  <span className="font-bold">2.45</span>
+                  <span>~$101.85</span>
+                </div>
+                <button onClick={() => toggleAccordeon()}>
+                  <AiOutlineDown />
+                </button>
+              </div>
             </div>
-            
-            <div className="flex flex-col text-right text-sm pl-[130px]">
-              <span className="font-bold">2.45</span>
-              <span>~$101.85</span>
-            </div>
-            
-              <button className="  mt-[10px] " onClick={() => toggleAccordeon()}>
-                < AiOutlineDown />
-              </button>
-              {accordeonIsShowing && (
-                <>
-                
+            {accordeonIsShowing && (
+              <>
                 <div className=" flex flex-col text-left">
-                    <span>Добавлено в пул LANDS:</span>
-                    <span>Добавлено в пул BNB:</span>
-                    <span>Возанаграждения APR за LP:</span>
-                    <span>Доля в Пуле:</span></div>
-                  
-                  
-                  {/* <div className="wallet flex flex-col text-left justify-start">
+                  <span>Добавлено в пул LANDS:</span>
+                  <span>Добавлено в пул BNB:</span>
+                  <span>Возанаграждения APR за LP:</span>
+                  <span>Доля в Пуле:</span>
+                </div>
+
+                {/* <div className="wallet flex flex-col text-left justify-start">
                     <span>Добавлено в пул LANDS:</span>
                     <span>Добавлено в пул BNB:</span>
                     <span>Возанаграждения APR за LP:</span>
                     <span>Доля в Пуле:</span></div> */}
-                  
-                </>
-              )}
-            
-            
+              </>
+            )}
           </button>
           <div>
             <button
