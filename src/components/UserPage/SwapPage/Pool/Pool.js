@@ -62,6 +62,22 @@ const Pool = () => {
   const [filter, setFilter] = useState("");
   const [accordeonIsShowing, setAccordeonIsShowing] = useState(false);
   const [data1IsShowing, setData1IsShowing] = useState(false);
+  const [liquidity, setLiquidity] =  useState([
+    {
+    id: 1, 
+    firstToken: "LANDS",
+    secondToken: "BNB",
+
+  },
+  {
+    id: 2, 
+    firstToken: "SOLANA",
+    secondToken: "USDT",
+    
+  }
+]);
+
+
 
   const accordeonData = {
     title: "Section 1 of accordion",
@@ -161,91 +177,14 @@ const Pool = () => {
     }
   };
 
+  
+  
+
   return (
-    <div className="w-full flex justify-center mb-36 relative">
-      <div className="bigblock flex flex-col gap-3 w-[894px] h-max p-[40px] border-0 rounded-xl shadow-3xl  bg-white z-[500]">
-        <h1 className="text-xl font-semibold">Ваша ликвидность</h1>
-        <h3 className="text-stone-600 text-sm font-[10]">
-          Чтобы вернуть токены, удалите ликвидность
-        </h3>
-        <div className="flex flex-row">
-          <button className="wallet w-[424px] bg-[#eeeeee] flex flex-col justify-center gap-10 py-1 px-4 shadow-md rounded-[25px]">
-            <div className=" flex flex-row justify-between">
-              <div className="flex flex-row items-center gap-1">
-                <img src={landsicon} className="h-5" alt="landsicon" />
-                <img src={bnb} className="h-5" alt="bnb" />
-                LANDS/BNB
-              </div>
-              <div className="flex flex-row gap-5">
-                <div className="flex flex-col text-right text-sm pl-[150px]">
-                  <span className="font-bold">2.45</span>
-                  <span>~$101.85</span>
-                </div>
-                <button onClick={() => toggleAccordeon()}>
-                  <AiOutlineDown />
-                </button>
-              </div>
-            </div>
-            {accordeonIsShowing && (
-              <>
-                <div className=" flex flex-col text-left">
-                  <span>Добавлено в пул LANDS:</span>
-                  <span>Добавлено в пул BNB:</span>
-                  <span>Возанаграждения APR за LP:</span>
-                  <span>Доля в Пуле:</span>
-                </div>
-
-                {/* <div className="wallet flex flex-col text-left justify-start">
-                    <span>Добавлено в пул LANDS:</span>
-                    <span>Добавлено в пул BNB:</span>
-                    <span>Возанаграждения APR за LP:</span>
-                    <span>Доля в Пуле:</span></div> */}
-              </>
-            )}
-          </button>
-          <div>
-            <button
-              onClick={() => openModal()}
-              className="w-[233px] py-3 text-white text-[16px] font-[400] bg-[#049CA6] rounded-[25px] mx-[29px]"
-            >
-              + Добавить ликвидность
-            </button>
-          </div>
-        </div>
-        <div className="flex flex-row py-3">
-          <div className="float-left">
-            <p className="text-[14px] pl-1 mt-[12px]">Не видите свой пул?</p>
-          </div>
-          <div className="float-left">
-            <button className="ml-[81px] text-[14px] border-[2px] border-[#049CA6] px-[25px] py-[11px] rounded-[25px] w-[220px] h-[40] hover:bg-[#049CA6] hover:border-[#049CA6] hover:text-white transition duration-100">
-              {" "}
-              Найти другие LP-токены
-            </button>
-          </div>
-        </div>
-        <div className="absolute top-0 right-0 w-[123px] h-[60px] bg-[#373C3D] rounded-tl-[0px] rounded-tr-[10px] rounded-br-[0px] rounded-bl-[50px]">
-          <div className="">
-            <button className="mr-[20px] my-[20px] w-[20px] h-[20px]">
-              <h1>a</h1>
-            </button>
-            <button className=" float-left mr-[20px] ml-[42px] my-[20px] w-[20px] h-[20px]">
-              <h1>a</h1>
-            </button>
-          </div>
-        </div>
-        <div className="absolute top-0 right-0 w-[123px] h-[60px] bg-[#373C3D] rounded-tl-[0px] rounded-tr-[10px] rounded-br-[0px] rounded-bl-[50px]">
-          <div className="">
-            <button className="mr-[20px]  my-[20px] w-[20px] h-[20px]">
-              <img src={timeback}></img>
-            </button>
-            <button className=" float-left mr-[20px] ml-[42px] my-[20px] w-[20px] h-[20px]">
-              <img src={gearwheel}></img>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div className=" w-[894px] h-[260px] relative  border-0 rounded-xl shadow-3xl text-left p-[40px]">
+    <div className="flex justify-center w-full">
+    <div className="w-[894px] flex flex-col  justify-self-center mb-36 relative shadow-xl">
+      
+        {liquidity.length === 0 ? (<div className=" w-[894px] h-[260px] relative  border-0 rounded-xl shadow-3xl text-left p-[40px]">
         <p className="text-xl font-semibold">Ваша ликвидность</p>
         <p className="pt-[7px] text-stone-600 text-sm font-[10]">
           Чтобы вернуть токены, удалите ликвидность
@@ -274,17 +213,73 @@ const Pool = () => {
           </div>
         </div>
         <div className="absolute top-0 right-0 w-[123px] h-[60px] bg-[#373C3D] rounded-tl-[0px] rounded-tr-[10px] rounded-br-[0px] rounded-bl-[50px]">
-          <div className="">
             <button className="mr-[20px]  my-[20px] w-[20px] h-[20px]">
               <img src={timeback}></img>
             </button>
             <button className=" float-left mr-[20px] ml-[42px] my-[20px] w-[20px] h-[20px]">
               <img src={gearwheel}></img>
             </button>
-          </div>
-        </div>
-      </div>
 
+        </div>
+      </div> 
+) : ( 
+  <div className="flex flex-row">
+        <button className="wallet w-[424px] bg-[#eeeeee] flex flex-col justify-center gap-10 py-1 px-4 shadow-md rounded-[25px]">
+          <div className=" flex flex-row justify-between">
+            <div className="flex flex-row items-center gap-1">
+              <img src={landsicon} className="h-5" alt="landsicon" />
+              <img src={bnb} className="h-5" alt="bnb" />
+              LANDS/BNB
+            </div>
+            <div className="flex flex-row gap-5">
+              <div className="flex flex-col text-right text-sm pl-[150px]">
+                <span className="font-bold">2.45</span>
+                <span>~$101.85</span>
+              </div>
+              <button onClick={() => toggleAccordeon()}>
+                <AiOutlineDown />
+              </button>
+            </div>
+          </div>
+          {accordeonIsShowing && (
+            <>
+              <div className="flex flex-row w-[390px] justify-between">
+                <div className=" flex  flex-col gap-3 text-left">
+                  <span className="flex items-center flex-row gap-2"> <img src={landsicon} className="h-5 " alt="landsicon" />Добавлено в пул LANDS:</span>
+                  <span className="flex items-center flex-row gap-2"> <img src={bnb} className="h-5 w-5" alt="bnb" />Добавлено в пул BNB:</span>
+                  <span>Возанаграждения APR за LP:</span>
+                  <span>Доля в Пуле:</span>
+                </div>
+                <div className="flex flex-col gap-3 text-right ">
+                  <span>56.308668</span>
+                  <span>56.308668</span>
+                  <span>0.5%</span>
+                  <span>0.5%</span>
+                </div>
+              </div>
+              <div className="flex flex-row gap-7 justify-between">
+                <button className=" w-[140px] h-[50px]  bg-[#049CA6] border-[2px] border-[#049CA6] rounded-full text-[white] font-normal hover:bg-[white] hover:text-stone-800 transition duration-100">
+                  Удалить
+                </button>
+                <button className="  w-[210px] h-[50px] px-1  border-[2px] border-transparent rounded-full text-[#049CA6] font-normal hover:border-[#049CA6] transition duration-100">
+                  + Добавить ликвидность
+                </button>
+              </div>
+            </>
+          )}
+        </button>
+        <div>
+          <button
+            onClick={() => openModal()}
+            className="w-[233px] py-3 text-white text-[16px] font-[400] bg-[#049CA6] rounded-[25px] mx-[29px]"
+          >
+            + Добавить ликвидность
+          </button>
+        </div>
+      </div>)}
+        
+
+      
       <Modal isOpen={!!isShowing} style={customstyle}>
         <div className="w-[894px] h-[300px] bg-white flex flex-col justify-between  border-0 rounded-xl shadow-3xl text-left p-[40px]">
           <div className="absolute top-0 right-0 w-[123px] h-[60px] bg-[#373C3D] rounded-tl-[0px] rounded-tr-[10px] rounded-br-[0px] rounded-bl-[50px]">
@@ -457,6 +452,7 @@ const Pool = () => {
           </div>
         </Modal>
       </Modal>
+    </div>
     </div>
   );
 };
