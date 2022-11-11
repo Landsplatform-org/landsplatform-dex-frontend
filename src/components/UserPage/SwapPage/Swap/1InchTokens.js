@@ -256,14 +256,6 @@ const tokens = [
       'https://tokens.1inch.io/0x1c545e9943cfd1b41e60a7917465911fa00fc28c.png',
   },
   {
-    symbol: 'SPG',
-    name: 'SPONGE',
-    decimals: 9,
-    address: '0x3aabcf53a1930a42e18d938c019e83ebee50a849',
-    logoURI:
-      'https://tokens.1inch.io/0x3aabcf53a1930a42e18d938c019e83ebee50a849.png',
-  },
-  {
     symbol: 'SAFEMARS',
     name: 'SafeMars',
     decimals: 9,
@@ -294,14 +286,6 @@ const tokens = [
     address: '0x3d6545b08693dae087e957cb1180ee38b9e3c25e',
     logoURI:
       'https://tokens.1inch.io/0x3d6545b08693dae087e957cb1180ee38b9e3c25e.png',
-  },
-  {
-    symbol: 'DEGOV2',
-    name: 'dego.finance',
-    decimals: 18,
-    address: '0x3da932456d082cba208feb0b096d49b202bf89c8',
-    logoURI:
-      'https://tokens.1inch.io/0x3da932456d082cba208feb0b096d49b202bf89c8.png',
   },
   {
     symbol: 'ADA',
