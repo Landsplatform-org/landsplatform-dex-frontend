@@ -2,13 +2,13 @@ import React, { useEffect, useContext, useState, memo } from "react";
 import { AiOutlineDown, AiOutlineRadiusBottomright } from "react-icons/ai";
 import { ImCross } from "react-icons/im";
 import Modal from "react-modal";
-import { UserContext } from "../../../../context/UserContext";
-// import timeback from "../../../../assets/icons/svg-gobbler.svg";
-// import gearwheel from "../../../../assets/icons/svg-goblin.svg";
+import { UserContext } from "../../../../../../../landsplatform-dex/src/context/UserContext";
+import timeback from "../../../../assets/icons/svg-gobbler.svg";
+import gearwheel from "../../../../assets/icons/svg-goblin.svg";
 import bnb from "../../../../assets/icons/binanceSmartChain.png";
 import landsicon from "../../../../assets/icons/landsPlatform_small.png";
 import { BsArrowLeft } from "react-icons/bs";
-import tokens from "../Swap/1InchTokens";
+import tokens from "../../../../../../../landsplatform-dex/src/components/UserPage/SwapPage/Swap/1InchTokens";
 import { GoPlus } from "react-icons/go";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 Modal.setAppElement(document.getElementById("root"));
@@ -48,12 +48,28 @@ const customstyle = {
   },
 };
 
+const style1 = {
+  height: 560,
+};
+
+const style2 = {
+  height: 260,
+};
+
 const Pool = () => {
   const [isShowing, setIsShowing] = useState(false);
   const [firstIsShowing, setFirstIsShowing] = useState(false);
   const [secondIsShowing, setSecondIsShowing] = useState(false);
   const [filter, setFilter] = useState("");
   const [accordeonIsShowing, setAccordeonIsShowing] = useState(false);
+  const [data1IsShowing, setData1IsShowing] = useState(false);
+
+  const accordeonData = {
+    title: "Section 1 of accordion",
+    content: `AccordionText AccordionText AccordionText AccordionText AccordionText AccordionText AccordionText AccordionText AccordionText AccordionText AccordionText `,
+  };
+
+  const { title, content } = accordeonData;
 
   const [fromToken, setFromToken] = useState({
     address: "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
@@ -138,35 +154,59 @@ const Pool = () => {
     }
   };
 
+  const Data1 = () => {
+    if (data1IsShowing) {
+      return setData1IsShowing(false);
+    } else {
+      setData1IsShowing(true);
+    }
+    };
+
+
+
   return (
     <div className="w-full flex justify-center mb-36 relative">
-      <div className="bigblock flex flex-col gap-3 w-[894px] h-max p-[40px] border-0 rounded-xl shadow-3xl absolute bg-white z-[500]">
+      <div className="bigblock flex flex-col gap-3 w-[894px] h-max p-[40px] border-0 rounded-xl shadow-3xl  bg-white z-[500]">
         <h1 className="text-xl font-semibold">Ваша ликвидность</h1>
         <h3 className="text-stone-600 text-sm font-[10]">
           Чтобы вернуть токены, удалите ликвидность
         </h3>
         <div className="flex flex-row">
-          <button className="w-[424px] bg-[#eeeeee] flex flex-row justify-between items-center py-1 px-4 shadow-md rounded-[25px]">
-            <div className="flex flex-row items-center gap-1">
+          <button className="wallet w-[424px] bg-[#eeeeee] flex flex-row justify-between   py-1 px-4 shadow-md rounded-[25px]">
+            <div className=" flex flex-row items-center gap-1 mt-2">
               <img src={landsicon} className="h-5" alt="landsicon" />
               <img src={bnb} className="h-5" alt="bnb" />
               LANDS/BNB
             </div>
+            
             <div className="flex flex-col text-right text-sm pl-[130px]">
               <span className="font-bold">2.45</span>
               <span>~$101.85</span>
             </div>
-            <span className="mr-2">
-              <button className="accordeon" onClick={() => toggleAccordeon()}>
-                <AiOutlineDown />
+            
+              <button className="  mt-[10px] " onClick={() => toggleAccordeon()}>
+                < AiOutlineDown />
               </button>
-              {/* Modal isOpen={!!firstIsShowing} */}
               {accordeonIsShowing && (
                 <>
-                  <button className="accordeon h-[300px] "></button>
+                
+                <div className=" flex flex-col text-left">
+                    <span>Добавлено в пул LANDS:</span>
+                    <span>Добавлено в пул BNB:</span>
+                    <span>Возанаграждения APR за LP:</span>
+                    <span>Доля в Пуле:</span></div>
+                  
+                  
+                  {/* <div className="wallet flex flex-col text-left justify-start">
+                    <span>Добавлено в пул LANDS:</span>
+                    <span>Добавлено в пул BNB:</span>
+                    <span>Возанаграждения APR за LP:</span>
+                    <span>Доля в Пуле:</span></div> */}
+                  
                 </>
               )}
-            </span>
+            
+            
           </button>
           <div>
             <button
@@ -201,10 +241,10 @@ const Pool = () => {
         <div className="absolute top-0 right-0 w-[123px] h-[60px] bg-[#373C3D] rounded-tl-[0px] rounded-tr-[10px] rounded-br-[0px] rounded-bl-[50px]">
           <div className="">
             <button className="mr-[20px]  my-[20px] w-[20px] h-[20px]">
-              <h1>absolute</h1>
+              <img src={timeback}></img>
             </button>
             <button className=" float-left mr-[20px] ml-[42px] my-[20px] w-[20px] h-[20px]">
-              <h1>absolute</h1>
+              <img src={gearwheel}></img>
             </button>
           </div>
         </div>
@@ -241,10 +281,10 @@ const Pool = () => {
         <div className="absolute top-0 right-0 w-[123px] h-[60px] bg-[#373C3D] rounded-tl-[0px] rounded-tr-[10px] rounded-br-[0px] rounded-bl-[50px]">
           <div className="">
             <button className="mr-[20px]  my-[20px] w-[20px] h-[20px]">
-              <h1>absolute</h1>
+              <img src={timeback}></img>
             </button>
             <button className=" float-left mr-[20px] ml-[42px] my-[20px] w-[20px] h-[20px]">
-              <h1>absolute</h1>
+              <img src={gearwheel}></img>
             </button>
           </div>
         </div>
@@ -255,10 +295,10 @@ const Pool = () => {
           <div className="absolute top-0 right-0 w-[123px] h-[60px] bg-[#373C3D] rounded-tl-[0px] rounded-tr-[10px] rounded-br-[0px] rounded-bl-[50px]">
             <div className="">
               <button className="mr-[20px]  my-[20px] w-[20px] h-[20px]">
-                <h1>absolute</h1>
+                <img src={timeback}></img>
               </button>
               <button className=" float-left mr-[20px] ml-[42px] my-[20px] w-[20px] h-[20px]">
-                <h1>absolute</h1>
+                <img src={gearwheel}></img>
               </button>
             </div>
           </div>
