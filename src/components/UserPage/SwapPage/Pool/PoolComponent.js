@@ -9,6 +9,13 @@ import tokens from "../Swap/1InchTokens";
 import { GoPlus } from "react-icons/go";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { TokenContext } from "../../../../context/TokenContext";
+import {
+  Text,
+  View,
+  StyleSheet,
+  Animated,
+  TouchableWithoutFeedback,
+} from "react-native";
 Modal.setAppElement(document.getElementById("root"));
 
 const styles = {
@@ -106,6 +113,35 @@ const PoolComponent = ({ children }) => {
   const closeSecondModal = () => {
     setSecondIsShowing(false);
   };
+
+  const spinValue = React.useState(new Animated.Value(0))[0];
+  const onPressIn = () => {
+    Animated.spring(spinValue, {
+      toValue: 1,
+      useNativeDriver: true,
+    }).start();
+  };
+
+  const onPressOut = () => {
+    Animated.spring(spinValue, {
+      toValue: 0,
+      useNativeDriver: true,
+    }).start();
+  };
+
+  <View
+    style={{
+      transform: [{ rotate: "180deg" }],
+    }}
+  ></View>;
+
+  const spinDeg = spinValue.interpolate({
+    useNativeDriver: true,
+    inputRange: [0, 1],
+    outputRange: ['0deg', '360deg']
+})
+
+
   return (
     <div className="flex justify-center w-full">
       <div className="w-[894px] h-max flex flex-col justify-self-center mb-36 relative shadow-xl p-6 gap-10">
