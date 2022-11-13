@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/landsplatform-dex-frontend/static/css/main.53cf2091.css",
-    "main.js": "/landsplatform-dex-frontend/static/js/main.8ad76f7e.js",
+    "main.js": "/landsplatform-dex-frontend/static/js/main.f46c5ab0.js",
     "static/js/890.91ae6429.chunk.js": "/landsplatform-dex-frontend/static/js/890.91ae6429.chunk.js",
     "static/css/356.a50b4454.chunk.css": "/landsplatform-dex-frontend/static/css/356.a50b4454.chunk.css",
-    "static/js/356.3d783e4c.chunk.js": "/landsplatform-dex-frontend/static/js/356.3d783e4c.chunk.js",
+    "static/js/356.84e3c703.chunk.js": "/landsplatform-dex-frontend/static/js/356.84e3c703.chunk.js",
     "static/js/324.5b5ebd12.chunk.js": "/landsplatform-dex-frontend/static/js/324.5b5ebd12.chunk.js",
     "static/js/350.8a1d9a86.chunk.js": "/landsplatform-dex-frontend/static/js/350.8a1d9a86.chunk.js",
     "static/css/287.2edd7359.chunk.css": "/landsplatform-dex-frontend/static/css/287.2edd7359.chunk.css",
@@ -64,10 +64,10 @@
     "index.html": "/landsplatform-dex-frontend/index.html",
     "static/media/facebook.svg": "/landsplatform-dex-frontend/static/media/facebook.6b81f68053c26d18e2667803980393bb.svg",
     "main.53cf2091.css.map": "/landsplatform-dex-frontend/static/css/main.53cf2091.css.map",
-    "main.8ad76f7e.js.map": "/landsplatform-dex-frontend/static/js/main.8ad76f7e.js.map",
+    "main.f46c5ab0.js.map": "/landsplatform-dex-frontend/static/js/main.f46c5ab0.js.map",
     "890.91ae6429.chunk.js.map": "/landsplatform-dex-frontend/static/js/890.91ae6429.chunk.js.map",
     "356.a50b4454.chunk.css.map": "/landsplatform-dex-frontend/static/css/356.a50b4454.chunk.css.map",
-    "356.3d783e4c.chunk.js.map": "/landsplatform-dex-frontend/static/js/356.3d783e4c.chunk.js.map",
+    "356.84e3c703.chunk.js.map": "/landsplatform-dex-frontend/static/js/356.84e3c703.chunk.js.map",
     "324.5b5ebd12.chunk.js.map": "/landsplatform-dex-frontend/static/js/324.5b5ebd12.chunk.js.map",
     "350.8a1d9a86.chunk.js.map": "/landsplatform-dex-frontend/static/js/350.8a1d9a86.chunk.js.map",
     "287.2edd7359.chunk.css.map": "/landsplatform-dex-frontend/static/css/287.2edd7359.chunk.css.map",
@@ -100,6 +100,6 @@
   },
   "entrypoints": [
     "static/css/main.53cf2091.css",
-    "static/js/main.8ad76f7e.js"
+    "static/js/main.f46c5ab0.js"
   ]
 }
