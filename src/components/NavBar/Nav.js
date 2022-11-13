@@ -37,7 +37,7 @@ const Nav = () => {
       <div className={styles.container}>
         <NavLink
           onClick={() => setSelectedPage("main")}
-          to="/landsplatform.dex/"
+          to="/landsplatform-dex-frontend/"
           className={`
             ${styles.navItem}
             ${selectedPage === "main" && styles.activeNavItem}
@@ -55,7 +55,7 @@ const Nav = () => {
         </NavLink>
         <NavLink
           onClick={() => setSelectedPage("contacts")}
-          to="/landsplatform.dex/contacts"
+          to="/landsplatform-dex-frontend/contacts"
           className={`
             ${styles.navItem}
             ${selectedPage === "contacts" && styles.activeNavItem}
