@@ -60,7 +60,7 @@ const WalletButton = memo(() => {
           <button
             type="button"
             className={styles.body}
-            onClick={() => connectWallet().then(() => { navigate("/landsplatform.dex/user-page");})}
+            onClick={() => connectWallet().then(() => { navigate("/landsplatform-dex-frontend/user-page");})}
           >
             Подключить кошелек
           </button>
