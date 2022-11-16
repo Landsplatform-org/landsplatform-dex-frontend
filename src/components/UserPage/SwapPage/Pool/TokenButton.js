@@ -1,18 +1,15 @@
 import React, { useState } from "react";
 import { AiOutlineDown } from "react-icons/ai";
 
-
-
 const TokenButton = ({ item, index }) => {
   const [accordeonIsShowing, setAccordeonIsShowing] = useState(false);
 
   const toggleAccordeon = () => {
     if (accordeonIsShowing) {
-      setAccordeonIsShowing(false)
+      setAccordeonIsShowing(false);
       return false;
-      
     } else {
-      setAccordeonIsShowing(true)
+      setAccordeonIsShowing(true);
       return true;
     }
   };
@@ -24,7 +21,6 @@ const TokenButton = ({ item, index }) => {
     tickIsNotClicked: `
       rotate-0 transition duration-100
     `,
-    
   };
 
   return (
@@ -43,8 +39,16 @@ const TokenButton = ({ item, index }) => {
               <span className="font-bold">2.45</span>
               <span>~$101.85</span>
             </div>
-            <button onClick={() => toggleAccordeon()} >
-              <div className={accordeonIsShowing ? styles1.tickIsClicked : styles1.tickIsNotClicked} >< AiOutlineDown  /></div>
+            <button onClick={() => toggleAccordeon()}>
+              <div
+                className={
+                  accordeonIsShowing
+                    ? styles1.tickIsClicked
+                    : styles1.tickIsNotClicked
+                }
+              >
+                <AiOutlineDown />
+              </div>
             </button>
           </div>
         </div>

@@ -23,7 +23,7 @@ function RequireAuth({ children }) {
   return isAuth === true ? (
     children
   ) : (
-    <Navigate to="/landsplatform.dex/" replace />
+    <Navigate to="/landsplatform-dex-frontend/" replace />
   );
 }
 
@@ -33,7 +33,7 @@ function Authed({ children }) {
   return isAuth === false ? (
     children
   ) : (
-    <Navigate to="/landsplatform.dex/user-page/" replace />
+    <Navigate to="/landsplatform-dex-frontend/user-page/" replace />
   );
 }
 
@@ -62,7 +62,7 @@ function App() {
             <Header />
             <Routes>
               <Route
-                path="/landsplatform.dex/"
+                path="/landsplatform-dex-frontend/"
                 element={
                   <Authed>
                     <MainPage />
@@ -70,7 +70,7 @@ function App() {
                 }
               />
               <Route
-                path="/landsplatform.dex/contacts"
+                path="/landsplatform-dex-frontend/contacts"
                 element={
                   <Authed>
                     <Contacts />
@@ -78,7 +78,7 @@ function App() {
                 }
               />
               <Route
-                path="/landsplatform.dex/user-page/"
+                path="/landsplatform-dex-frontend/user-page/"
                 element={
                   <RequireAuth>
                     <UPMain />
@@ -86,7 +86,7 @@ function App() {
                 }
               />
               <Route
-                path="/landsplatform.dex/user-page/swap"
+                path="/landsplatform-dex-frontend/user-page/swap"
                 element={
                   <RequireAuth>
                     <Swap />
@@ -94,7 +94,7 @@ function App() {
                 }
               />
               <Route
-                path="/landsplatform.dex/user-page/stacking"
+                path="/landsplatform-dex-frontend/user-page/stacking"
                 element={
                   <RequireAuth>
                     <StackingMain />
@@ -102,7 +102,7 @@ function App() {
                 }
               />
               <Route
-                path="/landsplatform.dex/user-page/projects"
+                path="/landsplatform-dex-frontend/user-page/projects"
                 element={
                   <RequireAuth>
                     <Projects />

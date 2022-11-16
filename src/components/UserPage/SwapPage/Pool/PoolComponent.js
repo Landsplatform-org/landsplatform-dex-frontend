@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState, memo } from "react";
+import React, { useContext, useState } from "react";
 import timeback from "../../../../assets/icons/gearwheel.svg";
 import gearwheel from "../../../../assets/icons/historyclock.svg";
 import { ImCross } from "react-icons/im";
@@ -16,9 +16,6 @@ import {
   Animated,
   TouchableWithoutFeedback,
 } from "react-native";
-
-import { useTranslation } from 'react-i18next';
-import '../../../../../src/i18next';
 Modal.setAppElement(document.getElementById("root"));
 
 const styles = {
@@ -78,9 +75,9 @@ const PoolComponent = ({ children }) => {
     const updatedLiquidity = [...liquidity, { AToken, BToken }];
     setLiquidity(updatedLiquidity);
     setIsShowing(false);
+
     const updatedAccordeon = [...accordeonIsShowing, { a: false }];
     setAccordeonIsShowing(updatedAccordeon);
-    console.log(accordeonIsShowing);
   };
 
   const filterItems = (filter) => {
@@ -143,12 +140,8 @@ const PoolComponent = ({ children }) => {
     inputRange: [0, 1],
     outputRange: ['0deg', '360deg']
 })
-const { t, i18n } = useTranslation();
 
-	const handleChangeLng = (lng) => {
-		i18n.changeLanguage(lng);
-		localStorage.setItem("lng", lng);
-	};
+
   return (
     
     <div className="flex justify-center w-full">
@@ -182,10 +175,10 @@ const { t, i18n } = useTranslation();
         </div>
         <div className="absolute top-0 right-0 w-[123px] h-[60px] bg-[#373C3D] rounded-tl-[0px] rounded-tr-[10px] rounded-br-[0px] rounded-bl-[50px]">
           <button className="mr-[20px]  my-[20px] w-[20px] h-[20px]">
-            <img src={timeback}></img>
+            <img src={timeback} alt="timeback" />
           </button>
           <button className=" float-left mr-[20px] ml-[42px] my-[20px] w-[20px] h-[20px]">
-            <img src={gearwheel}></img>
+            <img src={gearwheel} alt="gearwheel" />
           </button>
         </div>
       </div>
@@ -194,10 +187,10 @@ const { t, i18n } = useTranslation();
           <div className="absolute top-0 right-0 w-[123px] h-[60px] bg-[#373C3D] rounded-tl-[0px] rounded-tr-[10px] rounded-br-[0px] rounded-bl-[50px]">
             <div className="">
               <button className="mr-[20px]  my-[20px] w-[20px] h-[20px]">
-                <img src={timeback}></img>
+              <img src={timeback} alt="timeback" />
               </button>
               <button className=" float-left mr-[20px] ml-[42px] my-[20px] w-[20px] h-[20px]">
-                <img src={gearwheel}></img>
+              <img src={gearwheel} alt="gearwheel" />
               </button>
             </div>
           </div>
@@ -224,7 +217,7 @@ const { t, i18n } = useTranslation();
                   className="shadow-md flex flex-row items-center justify-between px-4 w-[255px] h-[50px] rounded-full m-3"
                 >
                   <div className="flex flex-row items-center gap-2">
-                    <img src={AToken.logoURI} className="h-[19px] w-[19px] " />
+                    <img src={AToken.logoURI} alt={AToken.symbol} className="h-[19px] w-[19px] " />
                     {AToken.symbol}
                   </div>
                   <AiOutlineDown />
@@ -244,7 +237,7 @@ const { t, i18n } = useTranslation();
                   className="shadow-md flex flex-row items-center justify-between px-4 w-[255px] h-[50px] rounded-full m-3"
                 >
                   <div className="flex flex-row items-center gap-2">
-                    <img src={BToken.logoURI} className="h-[19px] w-[19px] " />
+                    <img src={BToken.logoURI} alt={BToken.symbol} className="h-[19px] w-[19px] " />
                     {BToken.symbol}
                   </div>
                   <AiOutlineDown />

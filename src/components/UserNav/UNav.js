@@ -39,7 +39,7 @@ const UNav = () => {
       <div className={styles.container}>
         <NavLink
           onClick={() => setSelectedPage("umain")}
-          to="/landsplatform.dex/user-page"
+          to="/landsplatform-dex-frontend/user-page"
           className={`
             ${styles.navItem}
             ${selectedPage === "umain" && styles.activeNavItem}
@@ -57,7 +57,7 @@ const UNav = () => {
         </NavLink>
         <NavLink
           onClick={() => setSelectedPage("stacking")}
-          to="/landsplatform.dex/user-page/stacking"
+          to="/landsplatform-dex-frontend/user-page/stacking"
           className={`
             ${styles.navItem}
             ${selectedPage === "stacking" && styles.activeNavItem}
@@ -75,7 +75,7 @@ const UNav = () => {
         </NavLink>
         <NavLink
           onClick={() => setSelectedPage("swap")}
-          to="/landsplatform.dex/user-page/swap"
+          to="/landsplatform-dex-frontend/user-page/swap"
           className={`
             ${styles.navItem}
             ${selectedPage === "swap" && styles.activeNavItem}
@@ -93,7 +93,7 @@ const UNav = () => {
         </NavLink>
         <NavLink
           onClick={() => setSelectedPage("projects")}
-          to="/landsplatform.dex/user-page/projects"
+          to="/landsplatform-dex-frontend/user-page/projects"
           className={`
             ${styles.navItem}
             ${selectedPage === "projects" && styles.activeNavItem}

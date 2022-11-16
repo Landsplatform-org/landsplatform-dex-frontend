@@ -2,7 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://jojjerg.github.io/landsplatform.dex/",
+  "homepage": "https://jojjerg.github.io/landsplatform-dex-frontend/",
   "dependencies": {
     "@mui/icons-material": "^5.10.6",
     "@mui/material": "^5.10.8",
