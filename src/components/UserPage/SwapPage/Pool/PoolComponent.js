@@ -16,6 +16,9 @@ import {
   Animated,
   TouchableWithoutFeedback,
 } from "react-native";
+
+import { useTranslation } from 'react-i18next';
+import '../../../../../src/i18next';
 Modal.setAppElement(document.getElementById("root"));
 
 const styles = {
@@ -140,15 +143,22 @@ const PoolComponent = ({ children }) => {
     inputRange: [0, 1],
     outputRange: ['0deg', '360deg']
 })
+const { t, i18n } = useTranslation();
 
-
+	const handleChangeLng = (lng) => {
+		i18n.changeLanguage(lng);
+		localStorage.setItem("lng", lng);
+	};
   return (
+    
     <div className="flex justify-center w-full">
+      <button onClick={() => handleChangeLng("ru")} className="absolute left-10 bg-[blue] text-[white]">смена язика на руски</button>
+      <button onClick={() => handleChangeLng("en")} className="absolute left-[250px] bg-[blue] text-[white]" >смена язика на англ</button>
       <div className="w-[894px] h-max flex flex-col justify-self-center mb-36 relative shadow-xl p-6 gap-10">
         <div className="flex flex-col">
-          <p className="text-xl font-semibold">Ваша ликвидность</p>
+          <p className="text-xl font-semibold">{t("yourliquidity")}</p>
           <p className="pt-[7px] text-stone-600 text-sm font-[10]">
-            Чтобы вернуть токены, удалите ликвидность
+          {t("yourliquidity")}
           </p>
         </div>
         <div className="flex flex-row items-center">

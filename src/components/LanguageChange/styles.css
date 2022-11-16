@@ -5,3 +5,4 @@
 .content:hover .arrow {
   transform: rotate(180deg);
 }
+.name:hover .changeBlock {opacity: 1;}

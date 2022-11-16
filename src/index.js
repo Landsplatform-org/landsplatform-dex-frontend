@@ -5,6 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import {createClient,Provider,subscriptionExchange, defaultExchanges} from "urql";
 import { createClient as createWSClient } from "graphql-ws";
+import './i18next';
 
 import { UserProvider } from "./context/UserContext";
 import { TokenProvider } from "./context/TokenContext";
@@ -15,7 +16,9 @@ function Main() {
       <UserProvider>
       <TokenProvider>
         <Provider value={client}>
+          
           <App />
+          
         </Provider>
       </TokenProvider>
       </UserProvider>

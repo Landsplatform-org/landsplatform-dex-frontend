@@ -9,6 +9,7 @@ const styles = {
     tablet:w-screen tablet:justify-between tablet:px-5 tablet:mb-5 tablet:mt-3
   `,
   name: `
+  name
     block mr-1
     phone:hidden
     tablet:hidden
@@ -23,6 +24,13 @@ const styles = {
     phone:text-xl
     tablet:text-xl
   `,
+  lngChangeBlock: `
+  changeBlock
+  absolute flex flex-col top-14 opacity-0
+  `,
+  lngButtons: `
+  relative bg-[blue] p-3
+  `
 };
 
 const Language = () => {
@@ -37,7 +45,13 @@ const Language = () => {
       <span className={styles.mName}>Язык</span>
       <span className={styles.name}>Ru</span>
       <span className={styles.arrow}><IoIosArrowDown /></span>
+      <div className={styles.lngChangeBlock}>
+      <button className={styles.lngButtons} >RU</button>
+      <button className={styles.lngButtons} >EN</button>
+      <button className={styles.lngButtons} >CN</button>
+      </div>
     </div>
+    
   );
 };
 
