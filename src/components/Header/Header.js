@@ -9,12 +9,12 @@ import "./styles.css";
 
 const styles = {
   wrapper: `
-    w-screen fixed p-2 bg-white flex justify-center items-center z-[10]
+    w-screen fixed p-2 bg-white flex justify-center items-center z-[100]
     phone:px-3
     tablet:px-5
   `,
   container: `
-    w-[1280px] flex flex-row justify-between items-center bg-white
+    w-[1280px] flex flex-row justify-between items-center
     phone:w-screen phone:px-2
     tablet:w-screen phone:px-2
     laptop:w-[970px]

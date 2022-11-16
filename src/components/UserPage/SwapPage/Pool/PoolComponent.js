@@ -9,13 +9,7 @@ import tokens from "../Swap/1InchTokens";
 import { GoPlus } from "react-icons/go";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { TokenContext } from "../../../../context/TokenContext";
-import {
-  Text,
-  View,
-  StyleSheet,
-  Animated,
-  TouchableWithoutFeedback,
-} from "react-native";
+import { useTranslation } from "react-i18next";
 Modal.setAppElement(document.getElementById("root"));
 
 const styles = {
@@ -114,44 +108,15 @@ const PoolComponent = ({ children }) => {
     setSecondIsShowing(false);
   };
 
-  const spinValue = React.useState(new Animated.Value(0))[0];
-  const onPressIn = () => {
-    Animated.spring(spinValue, {
-      toValue: 1,
-      useNativeDriver: true,
-    }).start();
-  };
-
-  const onPressOut = () => {
-    Animated.spring(spinValue, {
-      toValue: 0,
-      useNativeDriver: true,
-    }).start();
-  };
-
-  <View
-    style={{
-      transform: [{ rotate: "180deg" }],
-    }}
-  ></View>;
-
-  const spinDeg = spinValue.interpolate({
-    useNativeDriver: true,
-    inputRange: [0, 1],
-    outputRange: ['0deg', '360deg']
-})
-
+  const { t, i18n } = useTranslation()
 
   return (
-    
     <div className="flex justify-center w-full">
-      <button onClick={() => handleChangeLng("ru")} className="absolute left-10 bg-[blue] text-[white]">смена язика на руски</button>
-      <button onClick={() => handleChangeLng("en")} className="absolute left-[250px] bg-[blue] text-[white]" >смена язика на англ</button>
       <div className="w-[894px] h-max flex flex-col justify-self-center mb-36 relative shadow-xl p-6 gap-10">
         <div className="flex flex-col">
           <p className="text-xl font-semibold">{t("yourliquidity")}</p>
           <p className="pt-[7px] text-stone-600 text-sm font-[10]">
-          {t("yourliquidity")}
+            {t("yourliquidity")}
           </p>
         </div>
         <div className="flex flex-row items-center">
@@ -187,10 +152,10 @@ const PoolComponent = ({ children }) => {
           <div className="absolute top-0 right-0 w-[123px] h-[60px] bg-[#373C3D] rounded-tl-[0px] rounded-tr-[10px] rounded-br-[0px] rounded-bl-[50px]">
             <div className="">
               <button className="mr-[20px]  my-[20px] w-[20px] h-[20px]">
-              <img src={timeback} alt="timeback" />
+                <img src={timeback} alt="timeback" />
               </button>
               <button className=" float-left mr-[20px] ml-[42px] my-[20px] w-[20px] h-[20px]">
-              <img src={gearwheel} alt="gearwheel" />
+                <img src={gearwheel} alt="gearwheel" />
               </button>
             </div>
           </div>
@@ -217,7 +182,11 @@ const PoolComponent = ({ children }) => {
                   className="shadow-md flex flex-row items-center justify-between px-4 w-[255px] h-[50px] rounded-full m-3"
                 >
                   <div className="flex flex-row items-center gap-2">
-                    <img src={AToken.logoURI} alt={AToken.symbol} className="h-[19px] w-[19px] " />
+                    <img
+                      src={AToken.logoURI}
+                      alt={AToken.symbol}
+                      className="h-[19px] w-[19px] "
+                    />
                     {AToken.symbol}
                   </div>
                   <AiOutlineDown />
@@ -237,7 +206,11 @@ const PoolComponent = ({ children }) => {
                   className="shadow-md flex flex-row items-center justify-between px-4 w-[255px] h-[50px] rounded-full m-3"
                 >
                   <div className="flex flex-row items-center gap-2">
-                    <img src={BToken.logoURI} alt={BToken.symbol} className="h-[19px] w-[19px] " />
+                    <img
+                      src={BToken.logoURI}
+                      alt={BToken.symbol}
+                      className="h-[19px] w-[19px] "
+                    />
                     {BToken.symbol}
                   </div>
                   <AiOutlineDown />

@@ -5,13 +5,13 @@ import { AiOutlineHome, AiOutlineContacts } from "react-icons/ai";
 
 const styles = {
   wrapper: `
-    w-max flex justify-center p-3 block 
+    w-max flex justify-center p-3
     phone:self-center
     tablet:self-center
   `,
   container: `
     w-max flex flex-row
-    phone:w-screen phone:flex-col phone:items-center
+    phone:w-screen phone:flex-col phone:items-center 
     tablet:w-screen tablet:flex-col tablet:items-center
   `,
   navItem: `

@@ -1,8 +1,22 @@
 .arrow {
-  transition: all 100ms ease-in-out;
+  transition: transform 150ms ease-in-out;
 }
 
-.content:hover .arrow {
+.change-block {
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 150ms ease-in-out;
+}
+
+.language-block:hover .arrow {
+  color: #049ca6;
   transform: rotate(180deg);
 }
-.name:hover .changeBlock {opacity: 1;}
+
+.language-block:hover .language-text {
+  color: #049ca6;
+}
+
+.language-block:hover .change-block {
+  transform: scaleY(1);
+}
