@@ -1,3 +1,149 @@
 {
-    "yourliquidity": "Your Luiquidity"
+    "test":
+    {"yourliquidity": "Your Luiquidity",
+    "language": "EN"},
+    "header":{
+        "mainHeader":"Home",
+        "contactsHeader":"Contacts",
+        "connectWallet": "Connect a wallet"
+    },
+    "installMM":{
+        "install":"Install",
+        "MM":"MetaMask",
+        "4nextW":"for further work",
+        "instQuestion":"Install?"
+
+    },
+    "contacts":{
+        "wanttoconnect":"Still have questions or want to get in touch?",
+        "connect":"Contact"
+    },
+    "mainDescription":{
+        "platformFeatures":"Platform features",
+        "feature1":"It is easy to tokenize property",
+        "feature2":"Sell in Russia, then around the world",
+        "feature3":"Invest in property",
+        "whyBCandLands":"Why blockchain and LANDS?",
+        "reason1":"Quick operations",
+        "descR1":"You can both sell and buy a property in a matter of minutes, and it will actually become yours.",
+        "reason2":"Investment opportunities",
+        "descR2":"Attract capital from investors around the world, investments with the Lands platform are much more affordable.",
+        "reason3":"Expanded geographical coverage",
+        "descR3":"With blockchain technology and the LANDS platform, you can invest or buy property across Russia from the comfort of your home."
+
+    },
+    "offerComponent":{
+        "exit":"Exit",
+        "square":"Plot area m",
+        "locationType":"Plot type:",
+        "adress":"Адрес:",
+        "learnMore":"Learn more"
+    },
+    "offers":{
+        "platformOffers":"Platform Offers",
+        "viewAll":"View all"
+    },
+    "mainTitle":{
+        "titleHeader":"User platform of digital services",
+        "titleDesc":"For digitization and realization of assets, projects, placement, attraction of investments, registration and receipt of loans.",
+        "buyLands":"Buy LANDS",
+        "how2Start":"How to get started?"
+    },
+    "nav":{
+        "navMain":"Home",
+        "navContacts":"Contacts"
+    },
+    "uNav":{
+        "uNavMain":"Main",
+        "uNavStacking":"Stacking",
+        "uNavExchange":"Exchange",
+        "uNavProjects":"Projects"
+    },
+    "projects":{
+        "proj":"Projects"
+    },
+    "capitalComponent":{
+        "assumedIncome":"Estimated income from venture capital",
+        "interestRate":"Estimated annual interest rate:",
+        "remuneration":"Estimated total remuneration of LANDS:"
+    },
+    "shoComponent":{
+        "estimatedProfitability":"Estimated profitability SHO",
+        "totalPower":"Total power of LANDS:",
+        "lvl":"Level:",
+        "scActive":"Active",
+        "scNotActive":"Not active",
+        "maxDistribution":"Maximum distribution:",
+        "winChance":"Estimated chance of winning:",
+        "annualReturn":"Estimated annual return of SHO:"
+    },
+    "stacking":{
+        "lands4Stacking":"LANDS for stacking",
+        "yourBalanceStacking":"Your balance:",
+        "days4Betting":"Days for betting",
+        "long-termBonus":"Long-term bonus:",
+        "confirmStacking":"Confirm",
+        "notEnoughLands":"Not enough LANDS"
+    },
+    "stackingMain":{
+        "SMTitle":"Stacking"
+    },
+    "pool":{
+        "liqNotFound":"Liquidity not found"
+    },
+    "poolComponent":{
+        "yourLiq":"Your liquidity",
+        "liqDesc":"To get the tokens back, remove the liquidity",
+        "addLiq":"Add liquidity",
+        "cantSeeYourPool":"Can't see your pool?",
+        "findOtherTokens":"Find other LP Tokens",
+        "getLPTokens":"Get LP tokens and earn 0.17% of trading commissions",
+        "choosePair":"Select a pair of tokens",
+        "chooseToken":"Select a token",
+        "pCBalance":"Balance:"
+    },
+    "tokenButton":{
+        "addedToPool":"Added to the pool",
+        "APRRewards":"APR Rewards for LP:",
+        "ratioInPool":"Share in the Pool",
+        "TBDelete":"Remove"
+    },
+    "send":{
+        "sending":"Sending",
+        "sendConfirm":"Confirm",
+        "notEnoughBNB":"Not enough BNB",
+        "sendChooseToken":"Select a token"
+    },
+    "swap":{
+        "exchanging":"Exchanging",
+        "swapConfirm":"Confirm",
+        "swapNotEnoughBNB":"Not enough BNB",
+        "swapChooseToken":"Select a token"
+    },
+    "swapMain":{
+        "SMExchange":"Exchange"
+    },
+    "guideComponent":{
+        "read":"Read"
+    },
+    "news":{
+        "theNews":"News"
+    },
+    "title":{
+        "purchaseLands":"Purchase LANDS for further work"
+    },
+    "walletButton":{
+        "WBconnectWallet":"Connect a wallet"
+    },
+    "footer":{
+        "contactUs":"Contact us",
+        "rights":"© All rights reserved. Lands 2020",
+        "termsOfUse":"Privacy Policy / Terms of Use"
+    },
+    "lastNews":{
+        "latestNews":"Latest news",
+        "viewAllNews":"View all"
+    }
+   
+
 }

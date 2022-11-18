@@ -1,3 +1,148 @@
 {
-    "yourliquidity": "sunxuivchaiivisunsuxim"
+    "test":{"yourliquidity": "sunxuivchaiivisunsuxim",
+    "language": "CN"},
+    "header":{
+        "mainHeader":"主页",
+        "contactsHeader":"联系我们",
+        "connectWallet": "连接钱包"
+    },
+    "installMM":{
+        "install":"安装",
+        "MM":"MetaMask",
+        "4nextW":"作进一步工作",
+        "instQuestion":"安装"
+
+    },
+    "contacts":{
+        "wanttoconnect":"您有任何问题或想联系吗",
+        "connect":"联络我们"
+    },
+    "mainDescription":{
+        "platformFeatures":"平台功能",
+        "feature1":"将所有权转移到令牌中很容易",
+        "feature2":"它们在俄罗斯销售，然后在世界各地销售",
+        "feature3":"投资房地产",
+        "whyBCandLands":"为什么是区块链和 LANDS?",
+        "reason1":"快速操作",
+        "descR1":"您可以在几分钟内出售和购买房产，它实际上会成为您的。",
+        "reason2":"投资机会",
+        "descR2":"吸引来自世界各地投资者的资金， Lands平台的投资更实惠。",
+        "reason3":"扩大地理复盖范围",
+        "descR3":"通过区块链技术和 LANDS 平台，您可以在舒适的家中投资或购买俄罗斯各地的房地产。"
+
+    },
+    "offerComponent":{
+        "exit":"出口",
+        "square":"土地面积(平方米)",
+        "locationType":"区域类型:",
+        "adress":"地址:",
+        "learnMore":"了解更多"
+    },
+    "offers":{
+        "platformOffers":"平台优惠",
+        "viewAll":"查看全部"
+    },
+    "mainTitle":{
+        "titleHeader":"数字服务用户平台",
+        "titleDesc":"用于资产、项目、配售、招商、登记和贷款受理的数字化和变现。",
+        "buyLands":"买 LANDS",
+        "how2Start":"如何开始?"
+    },
+    "nav":{
+        "navMain":"主页",
+        "navContacts":"联系我们"
+    },
+    "uNav":{
+        "uNavMain":"主页",
+        "uNavStacking":"堆叠",
+        "uNavExchange":"交换",
+        "uNavProjects":"项目"
+    },
+    "projects":{
+        "proj":"项目"
+    },
+    "capitalComponent":{
+        "assumedIncome":"来自风险投资的估计收入",
+        "interestRate":"预计年利率：",
+        "remuneration":"LANDS 的预计总报酬："
+    },
+    "shoComponent":{
+        "estimatedProfitability":"预计盈利能力 SHO",
+        "totalPower":"LANDS 的总功率：",
+        "lvl":"等级：",
+        "scActive":"积极的",
+        "scNotActive":"不活跃",
+        "maxDistribution":"最大分布：",
+        "winChance":"预估中奖机会：",
+        "annualReturn":"SHO的预计年回报率： "
+    },
+    "stacking":{
+        "lands4Stacking":"用于堆叠的 LANDS",
+        "yourBalanceStacking":"您的余额：",
+        "days4Betting":"投注日",
+        "long-termBonus":"长期奖金：",
+        "confirmStacking":"确认",
+        "notEnoughLands":"不够 LANDS"
+    },
+    "stackingMain":{
+        "SMTitle":"堆叠"
+    },
+    "pool":{
+        "liqNotFound":"未找到流动资金"
+    },
+    "poolComponent":{
+        "yourLiq":"您的流动性",
+        "liqDesc":"要取回代币，请删除流动性",
+        "addLiq":"增加流动性",
+        "cantSeeYourPool":"看不到你的游泳池？",
+        "findOtherTokens":"查找其他 LP 代币",
+        "getLPTokens":"获得LP代币，赚取0.17%的交易佣金",
+        "choosePair":"选择一对代币",
+        "chooseToken":"选择一个代币",
+        "pCBalance":"资产负债表:"
+    },
+    "tokenButton":{
+        "addedToPool":"添加到池",
+        "APRRewards":"LP的APR奖励：",
+        "ratioInPool":"在池中共享",
+        "TBDelete":"消除"
+    },
+    "send":{
+        "sending":"发送中",
+        "sendConfirm":"确认",
+        "notEnoughBNB":"币安币不足(BNB)",
+        "sendChooseToken":"选择一个代币"
+    },
+    "swap":{
+        "exchanging":"交换",
+        "swapConfirm":"确认",
+        "swapNotEnoughBNB":"币安币不足(BNB)",
+        "swapChooseToken":"选择一个代币"
+    },
+    "swapMain":{
+        "SMExchange":"交换"
+    },
+    "guideComponent":{
+        "read":"读"
+    },
+    "news":{
+        "theNews":"信息"
+    },
+    "title":{
+        "purchaseLands":"购买 LANDS 以进行进一步的工作"
+    },
+    "walletButton":{
+        "WBconnectWallet":"连接钱包"
+    },
+    "footer":{
+        "contactUs":"联系我们",
+        "rights":"版权所有。 土地2020",
+        "termsOfUse":"隐私政策/使用条款"
+    },
+    "lastNews":{
+        "latestNews":"最新消息",
+        "viewAllNews":"查看所有"
+    }
+
+
 }

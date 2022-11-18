@@ -1,6 +1,7 @@
 import React from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import "./styles.css";
+import { useTranslation } from "react-i18next";
 
 const styles = {
   wrapper: `
@@ -27,24 +28,31 @@ const styles = {
   lngChangeBlock: `
     absolute flex flex-col top-10 left-2 change-block
   `,
-  lngButtons: `
-    bg-[blue] p-3
-  `,
+  
 };
 
+
+
 const Language = () => {
+
+  const { t, i18n } = useTranslation();
+
+  const handleChangeLng = (lng) => {
+  i18n.changeLanguage(lng);
+  localStorage.setItem("lng", lng);};
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.content}>
         <span className={styles.mName}>Язык</span>
-        <span className={styles.name}>Ru</span>
+        <span className={styles.name}>{t("test.language")}</span>
         <span className={styles.arrow}>
           <IoIosArrowDown />
         </span>
         <div className={styles.lngChangeBlock}>
-          <button className={styles.lngButtons}>RU</button>
-          <button className={styles.lngButtons}>EN</button>
-          <button className={styles.lngButtons}>CN</button>
+          <button onClick={() => handleChangeLng("ru")} className="bg-[white] p-2 hover:bg-[#049CA6] hover:text-[white] transition duration-200">RU</button>
+          <button onClick={() => handleChangeLng("en")} className="bg-[white] p-2 hover:bg-[#049CA6] hover:text-[white] transition duration-200">EN</button>
+          <button onClick={() => handleChangeLng("cn")} className="bg-[white] p-2 hover:bg-[#049CA6] hover:text-[white] transition duration-200">CN</button>
         </div>
       </div>
     </div>

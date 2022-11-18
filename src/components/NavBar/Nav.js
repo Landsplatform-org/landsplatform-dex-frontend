@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import Language from "../LanguageChange/Language";
 import { AiOutlineHome, AiOutlineContacts } from "react-icons/ai";
+import { useTranslation } from "react-i18next";
 
 const styles = {
   wrapper: `
@@ -31,6 +32,7 @@ const styles = {
 
 const Nav = () => {
   const [selectedPage, setSelectedPage] = useState("main");
+  const { t, i18n } = useTranslation();
 
   return (
     <div className={styles.wrapper}>
@@ -51,7 +53,7 @@ const Nav = () => {
           >
             <AiOutlineHome />
           </span>
-          Главная
+          {t("nav.navMain")}
         </NavLink>
         <NavLink
           onClick={() => setSelectedPage("contacts")}
@@ -69,7 +71,7 @@ const Nav = () => {
           >
             <AiOutlineContacts />
           </span>
-          Контакты
+          {t("nav.navContacts")}
         </NavLink>
         <Language />
       </div>

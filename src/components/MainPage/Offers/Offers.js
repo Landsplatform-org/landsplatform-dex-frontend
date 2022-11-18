@@ -2,6 +2,7 @@ import React from "react";
 import { IoIosArrowForward } from "react-icons/io";
 import OfferComponent from "./OfferComponent/OfferComponent";
 import offers from "./offers-config";
+import { useTranslation } from "react-i18next";
 
 
 const styles = {
@@ -35,13 +36,14 @@ const styles = {
 };
 
 const Offers = () => {
+  const { t, i18n } = useTranslation();
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
         <section className={styles.offers}>
           <div className={styles.title}>
-            <h1>Предложения платформы</h1>
-            <button type="button" className={styles.watchAllBtn}>Смотреть все<span className={styles.watchArrow}><IoIosArrowForward /></span></button>
+            <h1>{t("offers.platformOffers")}</h1>
+            <button type="button" className={styles.watchAllBtn}>{t("offers.viewAll")}<span className={styles.watchArrow}><IoIosArrowForward /></span></button>
           </div>
           <div className={styles.offersContainer}>
             {offers.map(offer => (

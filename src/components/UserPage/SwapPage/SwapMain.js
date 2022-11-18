@@ -1,5 +1,6 @@
 import React, { lazy, useState } from "react";
 import { swapComponents } from "./linksList";
+import { useTranslation } from "react-i18next";
 
 const Send = lazy(() => import("./Send/Send"));
 const Swap = lazy(() => import("./Swap/Swap"));
@@ -32,11 +33,12 @@ const styles = {
 
 const SwapMain = () => {
   const [component, setComponent] = useState("send");
+  const { t, i18n } = useTranslation();
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
-        <h1 className={styles.title}>Обмен</h1>
+        <h1 className={styles.title}>{t("swapMain.SMExchange")}</h1>
         <div className={styles.componentButtonContainer}>
           {swapComponents?.map((link) => (
             <button

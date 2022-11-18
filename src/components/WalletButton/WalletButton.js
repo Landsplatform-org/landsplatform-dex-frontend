@@ -5,6 +5,8 @@ import userIcon from "../../assets/icons/wallet.svg";
 import { UserContext } from "../../context/UserContext";
 import { useNavigate } from "react-router-dom";
 
+import { useTranslation } from "react-i18next";
+
 const styles = {
   wrapper: `w-max flex flex-row justify-center items-center`,
   body: `
@@ -49,6 +51,8 @@ const WalletButton = memo(() => {
 
   const [newUser] = useMutation(CreateUser)
 
+  const { t, i18n } = useTranslation();
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
@@ -62,7 +66,7 @@ const WalletButton = memo(() => {
             className={styles.body}
             onClick={() => connectWallet().then(() => { navigate("/landsplatform-dex-frontend/user-page");})}
           >
-            Подключить кошелек
+            {t("walletButton.WBconnectWallet")}
           </button>
         )}
         <span className={styles.icon}>

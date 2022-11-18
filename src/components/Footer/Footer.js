@@ -3,6 +3,7 @@ import landsLogo from "../../assets/icons/landsLogo.svg";
 import footer from "./footer-config";
 import social from "./socials";
 
+import { useTranslation } from "react-i18next";
 const styles = {
   wrapper: `w-screen flex justify-center items-center bg-[#eaeaea]`,
   container: `
@@ -39,6 +40,8 @@ const styles = {
 };
 
 const Footer = () => {
+  
+  const { t, i18n } = useTranslation();
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
@@ -73,7 +76,7 @@ const Footer = () => {
               </div>
             </div>
             <div className={styles.col}>
-            <h3 className={styles.h3}>Cвязаться с нами</h3>
+            <h3 className={styles.h3}>{t("footer.contactUs")}</h3>
               <div className={styles.logosContainer}>
                 {social.map((link) => (
                   <a key={link.id} href={link.link} target='_blank' rel="noreferrer"><img className={styles.socialLogo} src={link.img} alt={link.alt} /></a>
@@ -82,8 +85,8 @@ const Footer = () => {
             </div>
           </div>
           <div className={styles.rights}>
-            <p>© Все права защищены. Lands 2020 </p>
-            <p className="block phone:hidden">Политика конфиденциальности / Условия использования</p>
+            <p>{t("footer.rights")}</p>
+            <p className="block phone:hidden">{t("footer.termsOfUse")}</p>
           </div>
         </div>
       </div>

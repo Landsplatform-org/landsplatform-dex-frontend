@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from "react-i18next";
 
 const styles = {
   wrapper: `w-full h-max flex flex-col p-2`,
@@ -13,18 +14,19 @@ const styles = {
 const CapitalComponent = () => {
   const [percent, setPercent] = useState(0);
   const [lands, setLands] = useState(0);
+  const { t, i18n } = useTranslation();
   
   return (
     <div className={styles.wrapper}>
-      <h1 className={styles.title}>Предполагаемый доход от венчурного капитала</h1>
+      <h1 className={styles.title}>{t("capitalComponent.assumedIncome")}</h1>
       <div className={styles.container}>
         <div className={styles.content}>
-          <span className={styles.subtitle}>Расчетная годовая процентная ставка:</span>
+          <span className={styles.subtitle}>{t("capitalComponent.interestRate")}</span>
           <span className={styles.percent}>{percent}%</span>
           <div className={styles.hr}></div>
         </div>
         <div className={styles.content}>
-          <span className={styles.subtitle}>Расчетное общее вознаграждение LANDS:</span>
+          <span className={styles.subtitle}>{t("capitalComponent.remuneration")}</span>
           <span className={styles.percent}>{lands} LANDS</span>
           <div className={styles.hr}></div>
         </div>

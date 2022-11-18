@@ -4,6 +4,8 @@ import { newsList } from "../News/newsList";
 import LastNewsComponent from "./LastNewsComponent/LastNewsComponent";
 import "./styles.css"
 
+import { useTranslation } from "react-i18next";
+
 const styles = {
   wrapper: `w-screen flex justify-center items-center my-24`,
   container: `
@@ -40,15 +42,16 @@ const LastNews = () => {
   useEffect(() => {
     if(newsList.length > 0) setIsRender(true)
   }, [isRender])
+  const { t, i18n } = useTranslation();
   
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
         <div className={styles.lastNews}>
           <div className={styles.title}>
-            <h1>Последние новости</h1>
+            <h1>{t("lastNews.latestNews")}</h1>
             <button type="button" className={styles.watchAllBtn}>
-              Смотреть все
+            {t("lastNews.viewAllNews")}
               <span className={styles.watchArrow}>
                 <IoIosArrowForward />
               </span>

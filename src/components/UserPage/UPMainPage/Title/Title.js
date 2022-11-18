@@ -1,6 +1,8 @@
 import React from 'react';
 import { whereBuyList } from './whereBuyList';
 
+import { useTranslation } from "react-i18next";
+
 const styles = {
   wrapper: `w-screen h-[50vh] flex flex-col justify-center items-center`,
   container: `
@@ -26,10 +28,11 @@ const styles = {
 }
 
 const Title = () => {
+  const { t, i18n } = useTranslation();
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
-        <h1 className={styles.title}>Приобретите LANDS для дальнейшей работы</h1>
+        <h1 className={styles.title}>{t("title.purchaseLands")}</h1>
         <div className={styles.whereBuyContainer}>
           {whereBuyList?.map((cex) => (
             <a key={cex.id} href={cex.link} className={styles.whereBuyContent} target='_blank' rel="noreferrer">{cex.description}</a>

@@ -1,6 +1,8 @@
 import React from "react";
 import "./styles.css";
 
+import { useTranslation } from "react-i18next";
+
 const styles = {
   wrapper: `w-screen h-[45vh] flex justify-center items-center contact-background`,
   container: `
@@ -33,13 +35,14 @@ const styles = {
 };
 
 const Contacts = () => {
+  const { t, i18n } = useTranslation();
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
         <section className={styles.contactPage}>
           <div className={styles.content}>
-            <h1 className={styles.titleText}>Все еще есть вопросы или хотите связаться?</h1>
-            <button type="button" className={styles.contactBtn}>Связаться</button>
+            <h1 className={styles.titleText}>{t("contacts.wanttoconnect")}</h1>
+            <button type="button" className={styles.contactBtn}>{t("contacts.connect")}</button>
           </div>
         </section>
       </div>

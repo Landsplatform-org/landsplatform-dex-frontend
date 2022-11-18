@@ -1,4 +1,7 @@
 import React, { memo } from "react";
+import { useTranslation } from "react-i18next";
+
+
 
 const styles = {
   noWalletBackground: `h-screen w-screen flex flex-col justify-center items-center bg-white`,
@@ -11,14 +14,15 @@ const styles = {
 };
 
 const InstallMetamask = memo(() => {
+  const { t, i18n } = useTranslation();
   return (
     <div className={styles.noWalletBackground}>
       <div className={styles.installCard}>
         <h1 className={styles.installTitle}>
-          Установите <span className="text-[#F5841F]">MetaMask</span> для дальнейшей работы
+        {t("installMM.install")} <span className="text-[#F5841F]">MetaMask</span> {t("installMM.4nextW")}
         </h1>
         <a href="https://metamask.io/" target="_blank" rel="noreferrer">
-          <button className={styles.installButton}>Установить?</button>
+          <button className={styles.installButton}>{t("installMM.instQuestion")}</button>
         </a>
       </div>
     </div>

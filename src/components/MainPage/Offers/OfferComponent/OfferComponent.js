@@ -1,5 +1,6 @@
 import React from "react";
 import { HiOutlineArrowUp } from "react-icons/hi";
+import { useTranslation } from "react-i18next";
 
 const styles = {
   offerField: `flex flex-col shadow shadow-md p-3 rounded-3xl mb-6`,
@@ -30,6 +31,7 @@ const styles = {
 };
 
 const OfferComponent = ({ offer }) => {
+  const { t, i18n } = useTranslation();
   return (
     <>
       <div className={styles.offerField}>
@@ -47,27 +49,27 @@ const OfferComponent = ({ offer }) => {
                 <HiOutlineArrowUp />
               </span>
               <span className="text-[#049ca6] font-normal mr-2">110 (+8%)</span>{" "}
-              | <span className="ml-2 font-normal">Выход 3.50 %</span>
+              | <span className="ml-2 font-normal">{t("offerComponent.exit")} 3.50 %</span>
             </div>
           </div>
           <div className={styles.offerContent}>
             <h1 className="text-[1.5rem] font-semibold">{offer.name}</h1>
             <p className="text-[0.875rem] font-normal">{offer.description}</p>
             <h3 className="text-[1rem] font-semibold mt-4">
-              Площадь участка м
+            {t("offerComponent.square")}
               <span className="text-[0.7rem] font-semibold align-top ">2</span>:
               <span className="text-[0.875rem] font-normal ml-2">
                 {offer.square}
               </span>
             </h3>
             <h3 className="text-[1rem] font-semibold mt-2">
-              Тип участка:{" "}
+            {t("offerComponent.locationType")}
               <span className="text-[0.875rem] font-normal ml-2">
                 {offer.type}
               </span>
             </h3>
             <h3 className="text-[1rem] font-semibold mt-2">
-              Адрес:{" "}
+            {t("offerComponent.adress")}
               <span className="text-[0.875rem] font-normal ml-2">
                 {offer.address}
               </span>
@@ -76,7 +78,7 @@ const OfferComponent = ({ offer }) => {
         </div>
         <div className={styles.additionalInf}>
           <button type="button" className={styles.getMoreBtn}>
-            Узнать больше
+          {t("offerComponent.learnMore")}
           </button>
           <p className="text-[1.5rem] font-semibold">
             {offer.price} <span className="font-normal">₽</span>

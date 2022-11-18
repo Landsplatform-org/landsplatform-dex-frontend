@@ -2,6 +2,8 @@ import React, { useEffect, useContext, useState, memo } from "react";
 import { TokenProvider } from "../../../../context/TokenContext";
 import { TokenContext } from "../../../../context/TokenContext";
 
+import { useTranslation } from "react-i18next";
+
 const styles = {
   wrapper: `
     w-max flex flex-col items-center justify-center mb-36
@@ -30,6 +32,8 @@ const styles = {
 
 const Stacking = memo(() => {
   const { getBalance, tokenBalance } = useContext(TokenContext);
+  const { t, i18n } = useTranslation();
+  
 
   const [formData, setFormData] = useState({
     amount: "0.0",
@@ -59,7 +63,7 @@ const Stacking = memo(() => {
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.formHeader}>
-            <span>LANDS для стекинга</span>
+            <span>{t("stacking.lands4Stacking")}</span>
           </div>
           <div className={styles.stackingPropContainer}>
             <input
@@ -69,10 +73,10 @@ const Stacking = memo(() => {
               pattern="^[0-9]*[.,]?[0-9]*$"
               onChange={(e) => handleChange(e, "amount")}
             />
-            <div className={styles.additionalInformation}><span>Ваш баланс: {tokenBalance}</span></div>
+            <div className={styles.additionalInformation}><span>{t("stacking.yourBalanceStacking")} {tokenBalance}</span></div>
           </div>
           <div className={styles.formHeader}>
-            <span>Дни для ставок</span>
+            <span>{t("stacking.days4Betting")}</span>
           </div>
           <div className={styles.stackingPropContainer}>
             <input
@@ -81,15 +85,15 @@ const Stacking = memo(() => {
               placeholder="0"
               onChange={(e) => handleChange(e, "days")}
             />
-            <div className={styles.additionalInformation}><span>Долгосрочный бонус: {bonus}%</span></div>
+            <div className={styles.additionalInformation}><span>{t("stacking.long-termBonus")} {bonus}%</span></div>
           </div>
           {tokenBalance > 0 ? (
             <button onClick={() => fetch()} className={styles.confirmButton}>
-              Подтвердить
+              {t("stacking.confirmStacking")}
             </button>
           ) : (
             <button disabled className={styles.confirmButton}>
-              Недостаточно LANDS
+              {t("stacking.notEnoughLands")}
             </button>
           )}
         </div>

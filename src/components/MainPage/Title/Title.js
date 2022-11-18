@@ -1,5 +1,6 @@
 import React from "react";
 import "./styles.css";
+import { useTranslation } from "react-i18next";
 
 const styles = {
   wrapper: `w-screen flex justify-center items-center title-background`,
@@ -41,21 +42,23 @@ const styles = {
 };
 
 const Title = () => {
+
+  const { t, i18n } = useTranslation();
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
         <section className={styles.titlePage}>
           <div className={styles.content}>
             <h1 className={styles.titleText}>
-              Пользовательская платформа цифровых сервисов
+              {t("mainTitle.titleHeader")}
             </h1>
             <p className={styles.descrition}>
-              Для оцифровки и реализации активов, проектов, размещение,
-              привлечения инвестиций, оформление и получение займов.
+            {t("mainTitle.titleDesc")}
             </p>
             <div className={styles.btnContainer}>
-              <button type="button" className={styles.buyBtn}>Купить LANDS</button>
-              <button type="button" className={styles.howToBtn}>Как начать?</button>
+              <button type="button" className={styles.buyBtn}>{t("mainTitle.buyLands")}</button>
+              <button type="button" className={styles.howToBtn}>{t("mainTitle.how2Start")}</button>
             </div>
           </div>
         </section>

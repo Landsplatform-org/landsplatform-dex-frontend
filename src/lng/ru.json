@@ -1,3 +1,151 @@
 {
-    "yourliquidity": "Ваша ликвидность"
+    "test":{"yourliquidity": "sunxuivchaiivisunsuxim",
+    "language": "RU"},
+    
+    "header":{
+        "mainHeader":"Главная",
+        "contactsHeader":"Контакты",
+        "connectWallet": "Подключить кошелек"
+    },
+    "installMM":{
+        "install":"Установите",
+        "MM":"MetaMask",
+        "4nextW":"для дальнейшей работы",
+        "instQuestion":"Установить?"
+
+    },
+    "contacts":{
+        "wanttoconnect":"Все еще есть вопросы или хотите связаться?",
+        "connect":"Связаться"
+    },
+    "mainDescription":{
+        "platformFeatures":"Возможности платформы",
+        "feature1":"Легко токенизировать собственность",
+        "feature2":"Продавать по России, далее по миру",
+        "feature3":"Инвестировать в собственность",
+        "whyBCandLands":"Почему блокчейн и LANDS?",
+        "reason1":"Быстрые операции",
+        "descR1":"Вы можете как продать, так и купить собственность за считанные минуты, и она фактические станет вашей.",
+        "reason2":"Инвестиционные возможности",
+        "descR2":"Привлекайте капитал от инвесторов по всему миру, инвестиции с платформой Lands намного доступней.",
+        "reason3":"Расширенный географический охват",
+        "descR3":"С технологией блокчейн и платформой LANDS вы можете инвестировать или купить собственность по всей России не выходя из дома."
+
+    },
+    "offerComponent":{
+        "exit":"Выход",
+        "square":"Площадь участка м",
+        "locationType":"Тип участка:",
+        "adress":"Адрес:",
+        "learnMore":"Узнать больше"
+    },
+    "offers":{
+        "platformOffers":"Предложения платформы",
+        "viewAll":"Смотреть все"
+    },
+    "mainTitle":{
+        "titleHeader":"Пользовательская платформа цифровых сервисов",
+        "titleDesc":"Для оцифровки и реализации активов, проектов, размещение, привлечения инвестиций, оформление и получение займов.",
+        "buyLands":"Купить LANDS",
+        "how2Start":"Как начать?"
+    },
+    "nav":{
+        "navMain":"Главная",
+        "navContacts":"Контакты"
+    },
+    "uNav":{
+        "uNavMain":"Главная",
+        "uNavStacking":"Стэкинг",
+        "uNavExchange":"Обмен",
+        "uNavProjects":"Проекты"
+    },
+    "projects":{
+        "proj":"Проекты"
+    },
+    "capitalComponent":{
+        "assumedIncome":"Предполагаемый доход от венчурного капитала:",
+        "interestRate":"Расчетная годовая процентная ставка:",
+        "remuneration":"Расчетное общее вознаграждение LANDS:"
+    },
+    "shoComponent":{
+        "estimatedProfitability":"Расчетная доходность SHO",
+        "totalPower":"Общая мощность LANDS:",
+        "lvl":"Уровень:",
+        "scActive":"Активен",
+        "scNotActive":"Не активен",
+        "maxDistribution":"Максимальное распределение:",
+        "winChance":"Расчетный шанс на победу:",
+        "annualReturn":"Расчетная доходность SHO  в годовом исчислении:"
+    },
+    "stacking":{
+        "lands4Stacking":"LANDS для стекинга",
+        "yourBalanceStacking":"Ваш баланс:",
+        "days4Betting":"Дни для ставок",
+        "long-termBonus":"Долгосрочный бонус:",
+        "confirmStacking":"Подтвердить",
+        "notEnoughLands":"Недостаточно LANDS"
+    },
+    "stackingMain":{
+        "SMTitle":"Стекинг"
+    },
+    "pool":{
+        "liqNotFound":"Ликвидность не найдена"
+    },
+    "poolComponent":{
+        "yourLiq":"Ваша ликвидность",
+        "liqDesc":"Чтобы вернуть токены, удалите ликвидность",
+        "addLiq":"Добавить ликвидность",
+        "cantSeeYourPool":"Не видите свой пул?",
+        "findOtherTokens":"Найти другие LP-токены",
+        "getLPTokens":"Получайте LP токены и зарабатывайте 0,17% торговых комиссий",
+        "choosePair":"Выберите пару токенов",
+        "chooseToken":"Выберите токен",
+        "pCBalance":"Баланс:"
+    },
+    "tokenButton":{
+        "addedToPool":"Добавлено в пул",
+        "APRRewards":"Вознаграждения APR за LP:",
+        "ratioInPool":"Доля в Пуле:",
+        "TBDelete":"Удалить"
+        
+    },
+    "send":{
+        "sending":"Отправляете",
+        "sendConfirm":"Подтвердить",
+        "notEnoughBNB":"Недостаточно BNB",
+        "sendChooseToken":"Выберите токен"
+    },
+    "swap":{
+        "exchanging":"Обмениваете",
+        "swapConfirm":"Подтвердить",
+        "swapNotEnoughBNB":"Недостаточно BNB",
+        "swapChooseToken":"Выберите токен"
+    },
+    "swapMain":{
+        "SMExchange":"Обмен"
+    },
+    "guideComponent":{
+        "read":"Читать"
+    },
+    "news":{
+        "theNews":"News"
+    },
+    "title":{
+        "purchaseLands":"Приобретите LANDS для дальнейшей работы"
+    },
+    "walletButton":{
+        "WBconnectWallet":"Подключить кошелек"
+    },
+    "footer":{
+        "contactUs":"Связаться с нами",
+        "rights":"© Все права защищены. Lands 2020",
+        "termsOfUse":"Политика конфиденциальности / Условия использования"
+    },
+    "lastNews":{
+        "latestNews":"Последние новости",
+        "viewAllNews":"Смотреть все"
+    }
+
 }
+
+    

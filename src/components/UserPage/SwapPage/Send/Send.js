@@ -4,6 +4,7 @@ import Modal from "react-modal";
 import transferToken from "./transferTokens";
 import { ImCross } from "react-icons/im";
 import { UserContext } from "../../../../context/UserContext";
+import { useTranslation } from "react-i18next";
 
 Modal.setAppElement(document.getElementById("root"));
 
@@ -147,13 +148,13 @@ const Send = memo(() => {
   useEffect(() => {
     getWeiBalance(txhash);
   }, [getWeiBalance, txhash]);
-
+  const { t, i18n } = useTranslation();
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.formHeader}>
-            <div>Отправляете</div>
+            <div>{t("send.sending")}</div>
           </div>
 
           <div className={styles.addIcon}></div>
@@ -196,14 +197,14 @@ const Send = memo(() => {
               onChange={(e) => handleChange(e, "receiver")}
             />
           </div>
-          {walletBalance > 0 ? (<button onClick={() => fetch()} className={styles.confirmButton}>Подтвердить</button>) 
-          : (<button disabled className={styles.confirmButton}>Недостаточно BNB</button>
+          {walletBalance > 0 ? (<button onClick={() => fetch()} className={styles.confirmButton}>{t("send.sendConfirm")}</button>) 
+          : (<button disabled className={styles.confirmButton}>{t("send.notEnoughBNB")}</button>
           )}
         </div>
         <Modal isOpen={!!isShowing} style={customstyles}>
           <div className={styles.modalWrapper}>
             <div className={styles.titleWrapper}>
-              <div className={styles.title}>Выберите токен</div>
+              <div className={styles.title}>{t("send.sendChooseToken")}</div>
               <div onClick={() => closeModal()} className={styles.exitButton}>
                 <ImCross />
               </div>

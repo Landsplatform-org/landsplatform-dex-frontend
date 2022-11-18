@@ -2,6 +2,7 @@ import React from "react";
 import { stackingComponents } from "./linksList";
 import Stacking from "./Stacking/Stacking";
 import Revenue from "./Revenue/Revenue";
+import { useTranslation } from "react-i18next";
 
 const styles = {
   wrapper: `flex flex-col justify-between items-center`,
@@ -38,10 +39,11 @@ const styles = {
 
 
 const StackingMain = () => {
+  const { t, i18n } = useTranslation();
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
-        <h1 className={styles.title}>Стекинг</h1>
+        <h1 className={styles.title}>{t("stackingMain.SMTitle")}</h1>
         <div className={styles.componentButtonContainer}>
           {stackingComponents?.map((link) => (
             <button

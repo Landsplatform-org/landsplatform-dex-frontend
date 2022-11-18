@@ -5,6 +5,7 @@ import deposit from "../../../assets/icons/deposit.svg";
 import clock from "../../../assets/icons/clock.svg";
 import money from "../../../assets/icons/money.svg";
 import russia from "../../../assets/icons/russia.svg";
+import { useTranslation } from "react-i18next";
 
 const styles = {
   wrapper: `w-screen flex justify-center items-center`,
@@ -53,45 +54,45 @@ const styles = {
 };
 
 const Description = () => {
+  const { t, i18n } = useTranslation();
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
         <section className={styles.opportunity}>
-          <h1 className={styles.title}>Возможности платформы</h1>
+          <h1 className={styles.title}>{t("mainDescription.platformFeatures")}</h1>
           <div className={styles.textRow}>
             <div className={styles.text}>
               <span className={styles.icon}>
                 <img src={coins} width={40} height={40} alt="coins" />
               </span>
-              <p>Легко токенизировать собственность</p>
+              <p>{t("mainDescription.feature1")}</p>
             </div>
             <div className={styles.text}>
               <span className={styles.icon}>
                 <img src={deal} width={40} height={40} alt="deal" />
               </span>
-              <p>Продавать по России, далее по миру</p>
+              <p>{t("mainDescription.feature2")}</p>
             </div>
             <div className={styles.text}>
               <span className={styles.icon}>
                 <img src={deposit} width={40} height={40} alt="deposit" />
               </span>
-              <p>Инвестировать в собственность</p>
+              <p>{t("mainDescription.feature3")}</p>
             </div>
           </div>
         </section>
         <section className={styles.blockchain}>
-          <h1 className={styles.title}>Почему блокчейн и LANDS?</h1>
+          <h1 className={styles.title}>{t("mainDescription.whyBCandLands")}</h1>
           <div className={styles.textRow}>
             <div className={styles.textContainer}>
               <div className={styles.text}>
                 <span className={styles.icon}>
                   <img src={clock} width={40} height={40} alt="coins" />
                 </span>
-                <p className={styles.subtitle}>Быстрые операции</p>
+                <p className={styles.subtitle}>{t("mainDescription.reason1")}</p>
               </div>
               <p>
-                Вы можете как продать, так и купить собственность за считанные
-                минуты, и она фактические станет вашей.
+              {t("mainDescription.descR1")}
               </p>
             </div>
             <div className={styles.textContainer}>
@@ -99,11 +100,10 @@ const Description = () => {
                 <span className={styles.icon}>
                   <img src={money} width={40} height={40} alt="deal" />
                 </span>
-                <p className={styles.subtitle}>Инвестиционные возможности</p>
+                <p className={styles.subtitle}>{t("mainDescription.reason2")}</p>
               </div>
               <p>
-                Привлекайте капитал от инвесторов по всему миру, инвестиции с
-                платформой Lands намного доступней.
+              {t("mainDescription.descR2")}
               </p>
             </div>
             <div className={styles.textContainer}>
@@ -112,13 +112,11 @@ const Description = () => {
                   <img src={russia} width={40} height={40} alt="deposit" />
                 </span>
                 <p className={styles.subtitle}>
-                  Расширенный географический охват
+                {t("mainDescription.reason3")}
                 </p>
               </div>
               <p>
-                С технологией блокчейн и платформой LANDS вы можете
-                инвестировать или купить собственность по всей России не выходя
-                из дома.
+              {t("mainDescription.descR3")}
               </p>
             </div>
           </div>

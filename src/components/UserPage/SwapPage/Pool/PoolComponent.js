@@ -108,15 +108,22 @@ const PoolComponent = ({ children }) => {
     setSecondIsShowing(false);
   };
 
-  const { t, i18n } = useTranslation()
+
+  const { t, i18n } = useTranslation();
+
+const handleChangeLng = (lng) => {
+i18n.changeLanguage(lng);
+localStorage.setItem("lng", lng);
+};
+
 
   return (
     <div className="flex justify-center w-full">
       <div className="w-[894px] h-max flex flex-col justify-self-center mb-36 relative shadow-xl p-6 gap-10">
         <div className="flex flex-col">
-          <p className="text-xl font-semibold">{t("yourliquidity")}</p>
+          <p className="text-xl font-semibold">{t("poolComponent.yourLiq")}</p>
           <p className="pt-[7px] text-stone-600 text-sm font-[10]">
-            {t("yourliquidity")}
+          {t("poolComponent.liqDesc")}
           </p>
         </div>
         <div className="flex flex-row items-center">
@@ -125,16 +132,16 @@ const PoolComponent = ({ children }) => {
             onClick={() => openModal()}
             className="w-[233px] h-[50px] text-white text-[16px] font-[400] bg-[#049CA6] rounded-[25px] mx-[29px]"
           >
-            + Добавить ликвидность
+            + {t("poolComponent.addLiq")}
           </button>
         </div>
         <div>
           <div className="float-left">
-            <p className="text-[14px] mt-[12px]">Не видите свой пул?</p>
+            <p className="text-[14px] mt-[12px]">{t("poolComponent.cantSeeYourPool")}</p>
           </div>
           <div className="float-left">
             <button className="ml-[81px] text-[14px] border-[2px] border-[#049CA6] px-[25px] py-[11px] rounded-[25px] w-[220px] h-[40] hover:bg-[#049CA6]  hover:border-[#049CA6] hover:text-white transition duration-100">
-              Найти другие LP-токены
+            {t("poolComponent.findOtherTokens")}
             </button>
           </div>
         </div>
@@ -167,14 +174,14 @@ const PoolComponent = ({ children }) => {
               <BsArrowLeft />
             </button>
             <div className="flex flex-col gap-2">
-              <h1 className="text-xl">Добавить ликвидность</h1>
+              <h1 className="text-xl">{t("poolComponent.addLiq")}</h1>
               <h3 className="text-sm">
-                Получайте LP токены и зарабатывайте 0,17% торговых комиссий
+              {t("poolComponent.getLPTokens")}
               </h3>
             </div>
           </div>
           <div className="flex flex-col">
-            <h1 className="font-normal">Выберите пару токенов</h1>
+            <h1 className="font-normal">{t("poolComponent.choosePair")}</h1>
             <div className="flex flex-row">
               <div className="flex flex-col">
                 <button
@@ -192,7 +199,7 @@ const PoolComponent = ({ children }) => {
                   <AiOutlineDown />
                 </button>
                 <div className="justify-between flex text-sm px-4 flex-row">
-                  Баланс:{" "}
+                {t("poolComponent.pCBalance")}
                   <div>
                     <span>0.0359423</span>{" "}
                     <span className="text-gray-500">~$1.85</span>
@@ -216,7 +223,7 @@ const PoolComponent = ({ children }) => {
                   <AiOutlineDown />
                 </button>
                 <div className="justify-between flex text-sm px-4 flex-row">
-                  Баланс:{" "}
+                {t("poolComponent.pCBalance")}
                   <div>
                     <span>0.0359423</span>{" "}
                     <span className="text-gray-500">~$1.85</span>
@@ -227,7 +234,7 @@ const PoolComponent = ({ children }) => {
                 onClick={() => addLiquidity(AToken, BToken)}
                 className="shadow-md flex flex-row items-center justify-center border-2 border-[#049CA6] bg-[#049CA6]  text-white px-4 w-[255px] h-[50px] rounded-full m-3 hover:bg-transparent hover:text-[#049CA6] transition duration-100"
               >
-                Добавить ликвидность
+                {t("poolComponent.addLiq")}
               </button>
             </div>
           </div>
@@ -235,7 +242,7 @@ const PoolComponent = ({ children }) => {
         <Modal isOpen={!!firstIsShowing} style={customstyle}>
           <div className={styles.modalWrapper}>
             <div className={styles.titleWrapper}>
-              <div className={styles.title}>Выберите токен</div>
+              <div className={styles.title}>{t("poolComponent.chooseToken")}</div>
               <div
                 onClick={() => closeFirstModal()}
                 className={styles.exitButton}
@@ -282,7 +289,7 @@ const PoolComponent = ({ children }) => {
         <Modal isOpen={!!secondIsShowing} style={customstyle}>
           <div className={styles.modalWrapper}>
             <div className={styles.titleWrapper}>
-              <div className={styles.title}>Выберите токен</div>
+              <div className={styles.title}>{t("poolComponent.chooseToken")}</div>
               <div
                 onClick={() => closeSecondModal()}
                 className={styles.exitButton}

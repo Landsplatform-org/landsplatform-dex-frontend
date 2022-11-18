@@ -4,6 +4,7 @@ import Language from "../LanguageChange/Language";
 import { AiOutlineHome, AiOutlineProject } from "react-icons/ai";
 import { BsCoin } from "react-icons/bs";
 import { MdOutlineSwapVerticalCircle } from "react-icons/md";
+import { useTranslation } from "react-i18next";
 
 const styles = {
   wrapper: `
@@ -33,6 +34,7 @@ const styles = {
 
 const UNav = () => {
   const [selectedPage, setSelectedPage] = useState("umain");
+  const { t, i18n } = useTranslation();
 
   return (
     <div className={styles.wrapper}>
@@ -53,7 +55,7 @@ const UNav = () => {
           >
             <AiOutlineHome />
           </span>
-          Главная
+          {t("uNav.uNavMain")}
         </NavLink>
         <NavLink
           onClick={() => setSelectedPage("stacking")}
@@ -71,7 +73,7 @@ const UNav = () => {
           >
             <BsCoin />
           </span>
-          Стэкинг
+          {t("uNav.uNavStacking")}
         </NavLink>
         <NavLink
           onClick={() => setSelectedPage("swap")}
@@ -89,7 +91,7 @@ const UNav = () => {
           >
             <MdOutlineSwapVerticalCircle />
           </span>
-          Обмен
+          {t("uNav.uNavExchange")}
         </NavLink>
         <NavLink
           onClick={() => setSelectedPage("projects")}
@@ -107,7 +109,7 @@ const UNav = () => {
           >
             <AiOutlineProject />
           </span>
-          Проекты
+          {t("uNav.uNavProjects")}
         </NavLink>
         <Language />
       </div>

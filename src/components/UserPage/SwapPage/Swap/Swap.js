@@ -7,6 +7,8 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import tokens from "./1InchTokens";
 import { UserContext } from "../../../../context/UserContext";
 
+import { useTranslation } from "react-i18next";
+
 Modal.setAppElement(document.getElementById("root"));
 
 const styles = {
@@ -201,12 +203,14 @@ const Swap = memo(() => {
     getWeiBalance(txhash)
   }, [getWeiBalance, txhash])
 
+  const { t, i18n } = useTranslation();
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.formHeader}>
-            <div>Обмениваете</div>
+            <div>{t("swap.exchanging")}</div>
           </div>
 
           <div className={styles.addIcon}></div>
@@ -290,13 +294,13 @@ const Swap = memo(() => {
               </div>
             </div>
           </div>
-          {walletBalance > 0 ? (<button className={styles.confirmButton}>Подтвердить</button>) 
-          : (<button disabled className={styles.confirmButton}>Недостаточно BNB</button>)}     
+          {walletBalance > 0 ? (<button className={styles.confirmButton}>{t("swap.swapConfirm")}</button>) 
+          : (<button disabled className={styles.confirmButton}>{t("swap.swapNotEnoughBNB")}</button>)}     
         </div>
         <Modal isOpen={!!isFromShowing} style={customstyles}>
           <div className={styles.modalWrapper}>
             <div className={styles.titleWrapper}>
-              <div className={styles.title}>Выберите токен</div>
+              <div className={styles.title}>{t("swap.swapChooseToken")}</div>
               <div onClick={() => closeModal()} className={styles.exitButton}>
                 <ImCross />
               </div>
@@ -335,7 +339,7 @@ const Swap = memo(() => {
         <Modal isOpen={!!isToShowing} style={customstyles}>
           <div className={styles.modalWrapper}>
             <div className={styles.titleWrapper}>
-              <div className={styles.title}>Выберите токен</div>
+              <div className={styles.title}>{t("swap.swapChooseToken")}</div>
               <div onClick={() => closeModal()} className={styles.exitButton}>
                 <ImCross />
               </div>

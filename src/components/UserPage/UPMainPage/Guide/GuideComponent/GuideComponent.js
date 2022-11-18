@@ -1,6 +1,7 @@
 import React from 'react';
 import { IoIosArrowForward } from "react-icons/io";
 
+import { useTranslation } from "react-i18next";
 const styles = {
   newsListContent: `
     w-[260px] h-max rounded-xl mx-3 bg-white
@@ -12,13 +13,14 @@ const styles = {
 }
 
 const GuideComponent = ({ guide }) => {
+  const { t, i18n } = useTranslation();
   return (
     <div className={styles.newsListContent}>
     <img src={guide.image} className={styles.image} alt="default" />
     <div className={styles.text}>
       <p>{guide.description}</p>
       <button className={styles.readButton}>
-        Читать
+      {t("guideComponent.read")} 
         <span className={styles.readArrow}><IoIosArrowForward /></span>
       </button>
     </div>

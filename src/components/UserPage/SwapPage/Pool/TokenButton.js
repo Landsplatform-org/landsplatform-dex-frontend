@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { AiOutlineDown } from "react-icons/ai";
 
+import { useTranslation } from "react-i18next";
+
 const TokenButton = ({ item, index }) => {
   const [accordeonIsShowing, setAccordeonIsShowing] = useState(false);
 
@@ -22,7 +24,7 @@ const TokenButton = ({ item, index }) => {
       rotate-0 transition duration-100
     `,
   };
-
+  const { t, i18n } = useTranslation();
   return (
     <div key={index} className="flex flex-row">
       <button className="wallet w-max bg-[#eeeeee] flex flex-col justify-center gap-10 py-1 px-4 shadow-md rounded-[25px]">
@@ -63,7 +65,7 @@ const TokenButton = ({ item, index }) => {
                     className="h-5 "
                     alt="landsicon"
                   />
-                  Добавлено в пул {item.AToken.symbol}:
+                  {t("tokenButton.addedToPool")} {item.AToken.symbol}:
                 </span>
                 <span className="flex items-center flex-row gap-2">
                   <img
@@ -71,10 +73,10 @@ const TokenButton = ({ item, index }) => {
                     className="h-5 w-5"
                     alt="bnb"
                   />
-                  Добавлено в пул {item.BToken.symbol}:
+                  {t("tokenButton.addedToPool")} {item.BToken.symbol}:
                 </span>
-                <span>Возанаграждения APR за LP:</span>
-                <span>Доля в Пуле:</span>
+                <span>{t("tokenButton.APRRewards")}</span>
+                <span>{t("tokenButton.ratioInPool")}</span>
               </div>
               <div className="flex flex-col gap-3 text-right ">
                 <span>56.308668</span>
@@ -85,10 +87,10 @@ const TokenButton = ({ item, index }) => {
             </div>
             <div className="flex flex-row gap-7 justify-between">
               <button className=" w-[140px] h-[50px]  bg-[#049CA6] border-[2px] border-[#049CA6] rounded-full text-[white] font-normal hover:bg-[white] hover:text-stone-800 transition duration-100">
-                Удалить
+              {t("tokenButton.addedToPool")}
               </button>
               <button className="  w-[210px] h-[50px] px-1  border-[2px] border-transparent rounded-full text-[#049CA6] font-normal hover:border-[#049CA6] transition duration-100">
-                + Добавить ликвидность
+                + {t("poolComponent.addLiq")}
               </button>
             </div>
           </>
