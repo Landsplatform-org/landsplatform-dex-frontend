@@ -32,7 +32,7 @@ const styles = {
 
 const Nav = () => {
   const [selectedPage, setSelectedPage] = useState("main");
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <div className={styles.wrapper}>
@@ -54,24 +54,6 @@ const Nav = () => {
             <AiOutlineHome />
           </span>
           {t("nav.navMain")}
-        </NavLink>
-        <NavLink
-          onClick={() => setSelectedPage("contacts")}
-          to="/landsplatform-dex-frontend/contacts"
-          className={`
-            ${styles.navItem}
-            ${selectedPage === "contacts" && styles.activeNavItem}
-          `}
-        >
-          <span
-            className={`
-              ${styles.icon}
-              ${selectedPage === "contacts" && styles.activeNavItem}
-            `}
-          >
-            <AiOutlineContacts />
-          </span>
-          {t("nav.navContacts")}
         </NavLink>
         <Language />
       </div>

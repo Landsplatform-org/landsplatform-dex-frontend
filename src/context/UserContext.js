@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createContext, useCallback, memo, useMemo } from "react";
+import React, { useState, useEffect, createContext, useCallback } from "react";
 import Web3 from "web3";
 
 export const UserContext = createContext();

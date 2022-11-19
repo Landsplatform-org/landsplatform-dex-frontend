@@ -1,7 +1,7 @@
 import React from "react";
 import { IoIosArrowDown } from "react-icons/io";
-import "./styles.css";
 import { useTranslation } from "react-i18next";
+import "./styles.css";
 
 const styles = {
   wrapper: `
@@ -28,10 +28,7 @@ const styles = {
   lngChangeBlock: `
     absolute flex flex-col top-10 left-2 change-block
   `,
-  
 };
-
-
 
 const Language = () => {
 

@@ -1,20 +1,22 @@
-import { lazy, Suspense, useContext, useEffect, useState } from "react";
+import { lazy, Suspense, useContext } from "react";
 import { Route, BrowserRouter, Routes, Navigate } from "react-router-dom";
 import { UserContext } from "./context/UserContext";
 import { ColorRing } from "react-loader-spinner";
 
-const InstallMetamask = lazy(() =>import("./components/InstallMetamask/InstallMetamask"));
+const InstallMetamask = lazy(() =>
+  import("./pages/InstallMetamaskPage/InstallMetamaskPage")
+);
 const Header = lazy(() => import("./components/Header/Header"));
-const MainPage = lazy(() => import("./components/MainPage/Main"));
-const Projects = lazy(() =>import("./components/UserPage/ProjectsPage/Projects"));
-const UPMain = lazy(() => import("./components/UserPage/UPMainPage/UPMain"));
-const Swap = lazy(() => import("./components/UserPage/SwapPage/SwapMain"));
-const StackingMain = lazy(() =>import("./components/UserPage/StackingPage/StackingMain"));
-const Contacts = lazy(() => import("./components/ContactsPage/Contacts"));
+const MainPage = lazy(() => import("./pages/MainPage/MainPage"));
+const Projects = lazy(() => import("./pages/ProjectsPage/Projects"));
+const UPMain = lazy(() => import("./pages/UPMainPage/UPMain"));
+const Swap = lazy(() => import("./pages/SwapPage/SwapMain"));
+const StackingMain = lazy(() => import("./pages/StackingPage/StackingMain"));
 const Footer = lazy(() => import("./components/Footer/Footer"));
 
 const styles = {
   wrapper: `h-min-screen w-full bg-white text-[#373C3D] select-none flex flex-col items-center overflow-hidden`,
+  loaderContainer: `h-screen w-screen flex items-center justify-center`
 };
 
 function RequireAuth({ children }) {
@@ -48,15 +50,23 @@ function App() {
         <BrowserRouter>
           <Suspense
             fallback={
-              <ColorRing
-                visible={true}
-                height="80"
-                width="80"
-                ariaLabel="blocks-loading"
-                wrapperStyle={{}}
-                wrapperClass="blocks-wrapper"
-                colors={["#049CA6", "#056F76", "#049CA6", "#056F76", "#049CA6"]}
-              />
+              <div className={styles.loaderContainer}>
+                <ColorRing
+                  visible={true}
+                  height="80"
+                  width="80"
+                  ariaLabel="blocks-loading"
+                  wrapperStyle={{}}
+                  wrapperClass="blocks-wrapper"
+                  colors={[
+                    "#049CA6",
+                    "#056F76",
+                    "#049CA6",
+                    "#056F76",
+                    "#049CA6",
+                  ]}
+                />
+              </div>
             }
           >
             <Header />
@@ -66,14 +76,6 @@ function App() {
                 element={
                   <Authed>
                     <MainPage />
-                  </Authed>
-                }
-              />
-              <Route
-                path="/landsplatform-dex-frontend/contacts"
-                element={
-                  <Authed>
-                    <Contacts />
                   </Authed>
                 }
               />

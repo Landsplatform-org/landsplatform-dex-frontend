@@ -42,17 +42,6 @@ const Header = () => {
     setShowNav(!isShowNav);
   };
 
-  // useEffect(() => {
-  //   if (isAuth) {
-  //     setAuth(true); 
-  //     console.log("true");
-  //   }
-  //   else {
-  //     setAuth(false)
-  //     console.log(false);
-  //   }
-  // }, [isAuth, auth]);
-
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>

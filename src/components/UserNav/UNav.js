@@ -34,7 +34,7 @@ const styles = {
 
 const UNav = () => {
   const [selectedPage, setSelectedPage] = useState("umain");
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <div className={styles.wrapper}>

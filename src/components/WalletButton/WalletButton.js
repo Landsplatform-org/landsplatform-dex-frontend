@@ -1,6 +1,5 @@
-/* <button type='button' className={styles.body}>{userResult?.data.createUser?.txhash}</button> */
-import React, { useEffect, useContext, memo } from "react";
-import { useMutation } from "urql";
+import React, { useContext, memo } from "react";
+//import { useMutation } from "urql";
 import userIcon from "../../assets/icons/wallet.svg";
 import { UserContext } from "../../context/UserContext";
 import { useNavigate } from "react-router-dom";
@@ -31,27 +30,27 @@ const WalletButton = memo(() => {
   
   let navigate = useNavigate();
 
-  const CreateUser = `
-    mutation Mutation($createUserInput: CreateUserInput!) {
-      createUser(createUserInput: $createUserInput) {
-        txhash
-      }
-    }
-  `;
+  // const CreateUser = `
+  //   mutation Mutation($createUserInput: CreateUserInput!) {
+  //     createUser(createUserInput: $createUserInput) {
+  //       txhash
+  //     }
+  //   }
+  // `;
 
-  const addUser = () => {
-    newUser({
-      variables: {
-        txhash: txhash
-      }
-    }).then(({data}) => {
-      console.log(data)
-    })
-  }
+  // const addUser = () => {
+  //   newUser({
+  //     variables: {
+  //       txhash: txhash
+  //     }
+  //   }).then(({data}) => {
+  //     console.log(data)
+  //   })
+  // }
 
-  const [newUser] = useMutation(CreateUser)
+  //const [newUser] = useMutation(CreateUser)
 
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <div className={styles.wrapper}>

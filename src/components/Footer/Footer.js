@@ -41,7 +41,7 @@ const styles = {
 
 const Footer = () => {
   
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>

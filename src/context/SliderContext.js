@@ -1,5 +1,5 @@
 import React, { useState, useEffect, createContext, useCallback } from "react";
-import { guideList } from "../components/UserPage/UPMainPage/Guide/guideList";
+import { guideList } from "../components/Guide/guideList";
 
 export const SliderContext = createContext();
 
