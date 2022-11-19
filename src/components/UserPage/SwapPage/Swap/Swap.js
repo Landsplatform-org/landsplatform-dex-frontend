@@ -1,9 +1,9 @@
 import React, { useEffect, useContext, useState, memo } from "react";
-import axios from 'axios';
+import axios from "axios";
 import { AiOutlineDown } from "react-icons/ai";
 import Modal from "react-modal";
 import { ImCross } from "react-icons/im";
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import tokens from "./1InchTokens";
 import { UserContext } from "../../../../context/UserContext";
 
@@ -16,13 +16,15 @@ const styles = {
     w-full flex flex-col items-center justify-center mb-36
   `,
   container: `
+    
     w-[1280px] flex justify-center
     phone:w-[360px]
     tablet:w-[750px]
     laptop:w-[970px]
   `,
   content: `
-    bg-[#eaeaea] border border-[#eeeeee] w-[26rem] rounded-3xl p-4 my-5
+    shadow-3xl
+    bg-[#fafafa] border border-[#eeeeee] w-[26rem] rounded-3xl p-4 my-5
     phone:w-full phone:m-2
   `,
   formHeader: `
@@ -32,7 +34,7 @@ const styles = {
     p-2 placeholder:text-[#373C3D] outline-none w-full text-md
   `,
   transferPropInput: `
-    bg-[#ededed] p-3 rounded-full placeholder:text-[#abc0c2] outline-none mb-6 w-full text-2xl
+    bg-[#e6e6e6] p-3 rounded-full placeholder:text-[#abc0c2] outline-none mb-6 w-full text-2xl
   `,
   currencySelector: `
     flex flex-row w-max
@@ -103,13 +105,28 @@ const customstyles = {
     backgroundColor: "transparent",
     padding: 0,
     border: "none",
-    zIndex: 100
+    zIndex: 100,
   },
   overlay: {
     backgroundColor: "rgba(10, 11, 13, 0.3)",
     backdropFilter: "blur(2px)",
-    zIndex: 100
+    zIndex: 100,
   },
+};
+
+const SwapInfo = ({ toToken }) => {
+  return (
+    <div className="flex flex-col">
+      <div className="flex flex-row justify-between pt-4">
+        <span className="font-semibold ">Цена:</span>
+        <span>5983754 per {toToken.symbol}</span>
+      </div>
+      <div className="flex flex-row justify-between pt-4">
+        <span className="font-semibold">Допустимый слипедж:</span>
+        <span className="text-[#049ca6] font-bold">0.5%</span>
+      </div>
+    </div>
+  );
 };
 
 const Swap = memo(() => {
@@ -124,18 +141,20 @@ const Swap = memo(() => {
   });
 
   const [fromToken, setFromToken] = useState({
-    address: '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee', 
-    logoURI: 'https://tokens.1inch.io/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c_1.png', 
-    symbol: 'BNB', 
-    decimals: 18
-  })
+    address: "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    logoURI:
+      "https://tokens.1inch.io/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c_1.png",
+    symbol: "BNB",
+    decimals: 18,
+  });
 
   const [toToken, setToToken] = useState({
-    address: '',
-    logoURI: 'https://psv4.vkuseraudio.net/s/v1/d/MOEpQfoFFspCMVwOLdDjqTH5K7mIKLjrfHg_kkQd-B84m5MxU-nmDSALGnmowxvL0OrrFY4n12x1Dy_QDmg7BFb6NY2XmUqScGmqvvewistqhOqFAOQ3rw/doubts-button.png',
-    symbol: 'Выберите токен',
-    decimals : 0
-  })
+    address: "",
+    logoURI:
+      "https://psv4.vkuseraudio.net/s/v1/d/MOEpQfoFFspCMVwOLdDjqTH5K7mIKLjrfHg_kkQd-B84m5MxU-nmDSALGnmowxvL0OrrFY4n12x1Dy_QDmg7BFb6NY2XmUqScGmqvvewistqhOqFAOQ3rw/doubts-button.png",
+    symbol: "Выберите токен",
+    decimals: 0,
+  });
 
   const [value, setValue] = useState("0.0");
   const [estimatedGas, setEstimatedGas] = useState("0");
@@ -144,14 +163,14 @@ const Swap = memo(() => {
   const swapPlace = () => {
     setFromToken(toToken);
     setToToken(fromToken);
-  }
+  };
 
   const selectFromToken = (address, logoURI, symbol, decimals) => {
     setFromToken({
       symbol: symbol,
       logoURI: logoURI,
       address: address,
-      decimals: decimals
+      decimals: decimals,
     });
 
     setIsFromShowing(false);
@@ -163,7 +182,7 @@ const Swap = memo(() => {
       symbol: symbol,
       logoURI: logoURI,
       address: address,
-      decimals: decimals
+      decimals: decimals,
     });
 
     setIsToShowing(false);
@@ -181,7 +200,22 @@ const Swap = memo(() => {
       setValue("0.0");
       setEstimatedGas("0");
     }
-    setFormData((prevState) => ({ ...prevState, [name]: e.target.value }));
+      const str = e.target.value;
+      setFormData((prevState) => ({ ...prevState, [name]: e.target.value }));
+
+      if (str.length) {
+        const re = /^\d+\.{0,1}\d*$/g;
+        
+        if (re.test(String(str).toLowerCase())) {
+          return setShowError(false);
+        }
+        return setShowError(true);
+      }
+      return setShowError(false);
+    
+
+
+    
   };
 
   const filterItems = (filter) => {
@@ -192,18 +226,20 @@ const Swap = memo(() => {
 
   const searchHandler = (e) => {
     setFilter(e.target.value);
-  }; 
+  };
 
   useEffect(() => {
     console.log(fromToken);
     console.log(toToken);
-  }, [fromToken, toToken])
+  }, [fromToken, toToken]);
 
   useEffect(() => {
-    getWeiBalance(txhash)
-  }, [getWeiBalance, txhash])
+    getWeiBalance(txhash);
+  }, [getWeiBalance, txhash]);
 
   const { t, i18n } = useTranslation();
+
+  const [showError, setShowError] = useState(false);
 
   return (
     <div className={styles.wrapper}>
@@ -216,6 +252,8 @@ const Swap = memo(() => {
           <div className={styles.addIcon}></div>
 
           <div className={styles.transferPropContainer}>
+            {showError &&   
+              <div className="text-[red] pb-2 pl-1 font-bold">Некорректное число</div>}
             <input
               type="text"
               className={styles.transferPropInput}
@@ -225,39 +263,46 @@ const Swap = memo(() => {
               }}
               // onBlur={() => getQuote()}
             />
-            <div className="flex flex-row justify-between"> 
-            <div
-              onClick={() => setIsFromShowing(true)}
-              className={styles.currencySelector}
-            >
-              <div className={styles.currencySelectorContent}>
-                <div className={styles.currencySelectorTicker}>
-                  <div className={styles.icon}>
-                    <img width={20} height={20} src={fromToken.logoURI} alt="" />
+            <div className="flex flex-row justify-between">
+              <div
+                onClick={() => setIsFromShowing(true)}
+                className={styles.currencySelector}
+              >
+                <div className={styles.currencySelectorContent}>
+                  <div className={styles.currencySelectorTicker}>
+                    <div className={styles.icon}>
+                      <img
+                        width={20}
+                        height={20}
+                        src={fromToken.logoURI}
+                        alt=""
+                      />
+                    </div>
+                    <div>{fromToken.symbol}</div>
                   </div>
-                  <div>{fromToken.symbol}</div>
+                  <AiOutlineDown className={styles.currencySelectorArrow} />
                 </div>
-                <AiOutlineDown className={styles.currencySelectorArrow} />
               </div>
-            </div>
-            <span className="p-[10px] font-semibold">Баланс: {walletBalance}</span>
+              <span className="p-[10px] font-semibold">
+                Баланс: {walletBalance}
+              </span>
             </div>
           </div>
           <div className={styles.swapButtonWrapper}>
-          <button
-            onClick={() => {
-              swapPlace()
-            }}
-            className={styles.swapButton}
-          >
-            <img
-              width={15}
-              height={15}
-              src={require('../../../../assets/icons/swap.png')}
-              alt=""
-            />
-          </button>
-        </div>
+            <button
+              onClick={() => {
+                swapPlace();
+              }}
+              className={styles.swapButton}
+            >
+              <img
+                width={15}
+                height={15}
+                src={require("../../../../assets/icons/swap.png")}
+                alt=""
+              />
+            </button>
+          </div>
           <div className={styles.transferPropContainer}>
             <input
               type="text"
@@ -273,14 +318,22 @@ const Swap = memo(() => {
                 <div className={styles.currencySelectorContent}>
                   <div className={styles.currencySelectorTicker}>
                     <div className={styles.icon}>
-                      <img width={20} height={20} src={toToken.logoURI} alt="" />
+                      <img
+                        width={20}
+                        height={20}
+                        src={toToken.logoURI}
+                        alt=""
+                      />
                     </div>
                     <div>{toToken.symbol}</div>
                   </div>
                   <AiOutlineDown className={styles.currencySelectorArrow} />
                 </div>
               </div>
-              <div className={styles.gasSelector}>
+              <span className="p-[10px] font-semibold">
+                Баланс: {walletBalance}
+              </span>
+              {/* <div className={styles.gasSelector}>
                 <div className={styles.gasSelectorContent}>
                   <div className={styles.gasSelectorTicker}>
                     <div className={styles.gasicon}>
@@ -294,11 +347,20 @@ const Swap = memo(() => {
                     <div className="mr-2">{estimatedGas}</div>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
+
+            {formData.amount > 0 && <SwapInfo toToken={toToken}></SwapInfo>}
           </div>
-          {walletBalance > 0 ? (<button className={styles.confirmButton}>{t("swap.swapConfirm")}</button>) 
-          : (<button disabled className={styles.confirmButton}>{t("swap.swapNotEnough")} BNB</button>)}     
+          {walletBalance > 0 ? (
+            <button className={styles.confirmButton}>
+              {t("swap.swapConfirm")}
+            </button>
+          ) : (
+            <button disabled className={styles.confirmButton}>
+              {t("swap.swapNotEnough")} BNB
+            </button>
+          )}
         </div>
         <Modal isOpen={!!isFromShowing} style={customstyles}>
           <div className={styles.modalWrapper}>
@@ -331,7 +393,12 @@ const Swap = memo(() => {
                   className={styles.tokenButton}
                 >
                   <div className="pl-2 pr-5">
-                    <LazyLoadImage width={38} height={38} src={t.logoURI} alt="" />
+                    <LazyLoadImage
+                      width={38}
+                      height={38}
+                      src={t.logoURI}
+                      alt=""
+                    />
                   </div>
                   <div>{t.symbol}</div>
                 </button>
@@ -370,7 +437,12 @@ const Swap = memo(() => {
                   className={styles.tokenButton}
                 >
                   <div className="pl-2 pr-5">
-                    <LazyLoadImage width={38} height={38} src={t.logoURI} alt="" />
+                    <LazyLoadImage
+                      width={38}
+                      height={38}
+                      src={t.logoURI}
+                      alt=""
+                    />
                   </div>
                   <div>{t.symbol}</div>
                 </button>
