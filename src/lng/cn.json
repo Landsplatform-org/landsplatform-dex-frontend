@@ -116,7 +116,7 @@
     "swap":{
         "exchanging":"交换",
         "swapConfirm":"确认",
-        "swapNotEnoughBNB":"币安币不足(BNB)",
+        "swapNotEnough":"币安币不足",
         "swapChooseToken":"选择一个代币"
     },
     "swapMain":{

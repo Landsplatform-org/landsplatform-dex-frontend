@@ -117,7 +117,7 @@
     "swap":{
         "exchanging":"Exchanging",
         "swapConfirm":"Confirm",
-        "swapNotEnoughBNB":"Not enough BNB",
+        "swapNotEnough":"Not enough",
         "swapChooseToken":"Select a token"
     },
     "swapMain":{

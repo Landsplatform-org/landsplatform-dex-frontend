@@ -225,6 +225,7 @@ const Swap = memo(() => {
               }}
               // onBlur={() => getQuote()}
             />
+            <div className="flex flex-row justify-between"> 
             <div
               onClick={() => setIsFromShowing(true)}
               className={styles.currencySelector}
@@ -238,6 +239,8 @@ const Swap = memo(() => {
                 </div>
                 <AiOutlineDown className={styles.currencySelectorArrow} />
               </div>
+            </div>
+            <span className="p-[10px] font-semibold">Баланс: {walletBalance}</span>
             </div>
           </div>
           <div className={styles.swapButtonWrapper}>
@@ -295,7 +298,7 @@ const Swap = memo(() => {
             </div>
           </div>
           {walletBalance > 0 ? (<button className={styles.confirmButton}>{t("swap.swapConfirm")}</button>) 
-          : (<button disabled className={styles.confirmButton}>{t("swap.swapNotEnoughBNB")}</button>)}     
+          : (<button disabled className={styles.confirmButton}>{t("swap.swapNotEnough")} BNB</button>)}     
         </div>
         <Modal isOpen={!!isFromShowing} style={customstyles}>
           <div className={styles.modalWrapper}>

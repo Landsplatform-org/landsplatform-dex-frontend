@@ -118,7 +118,7 @@
     "swap":{
         "exchanging":"Обмениваете",
         "swapConfirm":"Подтвердить",
-        "swapNotEnoughBNB":"Недостаточно BNB",
+        "swapNotEnough":"Недостаточно",
         "swapChooseToken":"Выберите токен"
     },
     "swapMain":{
