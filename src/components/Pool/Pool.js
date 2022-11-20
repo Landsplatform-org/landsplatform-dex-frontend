@@ -10,7 +10,7 @@ const Pool = () => {
   return (
     <PoolComponent>
       {liquidity.length === 0 ? (
-        <p className="flex items-center w-[424px] rounded-[25px] h-[50px] px-[20px]">
+        <p className="flex phone:flex-col  items-center  w-[424px] rounded-[25px] h-[50px] px-[20px]">
           {t("pool.liqNotFound")}
         </p>
       ) : (
