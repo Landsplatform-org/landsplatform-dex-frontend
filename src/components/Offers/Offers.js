@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import offersRU from "./offers-configRU";
+import offersEN from "./offers-configEN";
+import offersCN from "./offers-configCN";
 import { IoIosArrowForward } from "react-icons/io";
 import OfferComponent from "../OfferComponent/OfferComponent";
-import offers from "./offers-config";
 import { useTranslation } from "react-i18next";
+import { UserContext } from "../../context/UserContext";
+
 
 const styles = {
   wrapper: `w-screen flex justify-center items-center`,
@@ -36,6 +40,7 @@ const styles = {
 
 const Offers = () => {
   const { t } = useTranslation();
+  const {language} = useContext(UserContext);
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
@@ -50,7 +55,13 @@ const Offers = () => {
             </button>
           </div>
           <div className={styles.offersContainer}>
-            {offers.map((offer) => (
+            {language === "ru" && offersRU.map((offer) => (
+              <OfferComponent key={offer.id} offer={offer} />
+            ))}
+            {language === "en" && offersEN.map((offer) => (
+              <OfferComponent key={offer.id} offer={offer} />
+            ))}
+            {language === "cn" && offersCN.map((offer) => (
               <OfferComponent key={offer.id} offer={offer} />
             ))}
           </div>

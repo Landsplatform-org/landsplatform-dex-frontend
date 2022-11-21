@@ -113,7 +113,7 @@ const PoolComponent = ({ children }) => {
   
   return (
     <div className="flex justify-center w-full">
-      <div className="w-[894px] phone:w-[350px] h-max flex flex-col justify-self-center mb-36 relative shadow-xl p-6 gap-10">
+      <div className="w-[894px] phone:w-[350px] h-max flex flex-col justify-self-center mb-36 relative shadow-xl p-6 gap-10 tablet:w-[700px]">
         <div className="flex flex-col ">
           <p className="text-xl font-semibold">{t("poolComponent.yourLiq")}</p>
           <p className="pt-[7px] text-stone-600 text-sm font-[10]">
@@ -124,7 +124,7 @@ const PoolComponent = ({ children }) => {
           {children}
           <button
             onClick={() => openModal()}
-            className="w-[233px] h-[50px] phone:items-center text-white text-[16px] font-[400] bg-[#049CA6] rounded-[25px] mx-[29px] phone:mx-0">
+            className="w-[233px] h-[50px] phone:items-center text-white text-[16px] font-[400] bg-[#049CA6] rounded-[25px] mx-[29px] phone:mx-0 phone:mt-3">
             + {t("poolComponent.addLiq")}
           </button>
         </div>
@@ -138,20 +138,20 @@ const PoolComponent = ({ children }) => {
             </button>
           </div>
         </div>
-        <div className="absolute top-0 right-0 w-[123px] h-[60px] bg-[#373C3D] rounded-tl-[0px] rounded-tr-[10px] rounded-br-[0px] rounded-bl-[50px]">
-          <button className="mr-[20px]  my-[20px] w-[20px] h-[20px]">
+        <div className="absolute top-0 right-0 w-[123px] h-[60px] phone:h-[50px] phone:w-[100px] bg-[#373C3D] rounded-tl-[0px] rounded-tr-[10px] rounded-br-[0px] rounded-bl-[50px]">
+          <button className="mr-[20px]  my-[20px] w-[20px] h-[20px] phone:m-3 phone:ml-2">
             <img src={timeback} alt="timeback" />
           </button>
-          <button className=" float-left mr-[20px] ml-[42px] my-[20px] w-[20px] h-[20px]">
+          <button className=" float-left mr-[20px] ml-[42px] my-[20px] w-[20px] h-[20px] phone:m-3 phone:ml-7">
             <img src={gearwheel} alt="gearwheel" />
           </button>
         </div>
       </div>
       <Modal isOpen={!!isShowing} style={customstyle}>
-        <div className="w-[894px] h-[270px] bg-white flex flex-col justify-between  border-0 rounded-xl shadow-3xl text-left p-[40px]  phone:flex phone:flex-col phone:items-center phone:h-max phone:w-[350px]">
-          <div className="absolute top-0 right-0 w-[123px] phone:w-[60px] h-[60px] phone:h-[30px] bg-[#373C3D] rounded-tl-[0px] rounded-tr-[10px] rounded-br-[0px] rounded-bl-[50px] phone:flex phone:flex-col ">
-            <div className="phone:flex phone:flex-col phone:items-center">
-              <button className="mr-[20px]  my-[20px] w-[20px] h-[20px] phone:w-[12px] phone:h-[12px] phone:mr-[15px] phone:my-[8px]">
+        <div className="w-[894px] h-[270px] bg-white flex flex-col justify-between  border-0 rounded-xl shadow-3xl text-left p-[40px]  phone:flex phone:flex-col phone:items-center phone:h-max phone:w-[350px]  tablet:w-[700px] tablet:h-[500px]">
+          <div className="absolute top-0 right-0 w-[123px] phone:w-[60px] h-[60px] phone:h-[30px] bg-[#373C3D] rounded-tl-[0px] rounded-tr-[10px] rounded-br-[0px] rounded-bl-[50px] phone:flex phone:flex-col tablet:flex tablet:flex-col tablet:items-center ">
+            <div className="phone:flex phone:flex-col phone:items-center  ">
+              <button className="mr-[20px]  my-[20px] w-[20px] h-[20px] phone:w-[12px] phone:h-[12px] phone:mr-[15px] phone:my-[8px] ">
                 <img src={timeback} alt="timeback" />
               </button>
               <button className=" float-left mr-[20px] ml-[42px] my-[20px] w-[20px] h-[20px] phone:w-[12px] phone:h-[12px] phone:mr-[15px] phone:my-[-20px]">
@@ -159,24 +159,24 @@ const PoolComponent = ({ children }) => {
               </button>
             </div>
           </div>
-          <div className="flex flex-row gap-4 phone:w-[350px] phone:flex phone:flex-row phone:items-center">
+          <div className="flex flex-row gap-4 phone:w-[350px] phone:flex phone:flex-row phone:items-center ">
             <button 
               onClick={() => closeModal()}
-              className="text-xl pt-[5px] phone:pt-0 w-max h-max phone:flex phone:flex-col phone:items-center"
+              className="text-xl pt-[5px] phone:pt-0 w-max h-max phone:absolute top-11 left-5"
             >
               <BsArrowLeft />
             </button>
             
             <div className="flex flex-col gap-2 phone:flex phone:flex-col phone:items-center phone:gap-3 phone:w-[350px]  ">
-              <h1 className="text-xl ">{t("poolComponent.addLiq")}</h1>
+              <h1 className="text-xl  ">{t("poolComponent.addLiq")}</h1>
               <h3 className="text-sm phone:text-xs phone:text-center ">
               {t("poolComponent.getLPTokens")}
               </h3>
             </div>
           </div>
-          <div className="flex flex-col phone:flex phone:flex-col phone:gap-1 ">
+          <div className="flex flex-col phone:flex phone:flex-col phone:gap-1 tablet:flex tablet:flex-col tablet:items-center">
             <h1 className="font-normal phone:flex phone:flex-col phone:items-center">{t("poolComponent.choosePair")}</h1>
-            <div className="flex flex-row phone:flex phone:flex-col">
+            <div className="flex flex-row phone:flex phone:flex-col tablet:flex tablet:flex-col tablet:items-center">
               <div className="flex flex-col">
                 <button
                   onClick={() => firstOpenModal()}
@@ -201,7 +201,7 @@ const PoolComponent = ({ children }) => {
                 </div>
               </div>
               <div className="phone:flex phone:flex-col phone:items-center">
-              <GoPlus className="mt-7" />
+              <GoPlus className="mt-7 tablet:mt-5 tablet:mb-5" />
               </div>
               <div className="flex flex-col ">
                 <button

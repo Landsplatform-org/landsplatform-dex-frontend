@@ -97,6 +97,8 @@ const Send = memo(() => {
     amount: "0.0",
   });
 
+  const [showError, setShowError] = useState(false);
+
   const [filter, setFilter] = useState("");
 
   const [token, setToken] = useState({
@@ -119,9 +121,19 @@ const Send = memo(() => {
   };
 
   const handleChange = (e, name) => {
-    if (!e.target.value) return;
-
+    const str = e.target.value;
+    
     setFormData((prevState) => ({ ...prevState, [name]: e.target.value }));
+
+    if (str.length) {
+      const re = /^\d+\.{0,1}\d*$/g;
+
+      if (re.test(String(str).toLowerCase())) {
+        return setShowError(false);
+      }
+      return setShowError(true);
+    }
+    return setShowError(false);
   };
 
   const filterItems = (filter) => {
@@ -149,6 +161,10 @@ const Send = memo(() => {
     getWeiBalance(txhash);
   }, [getWeiBalance, txhash]);
   const { t } = useTranslation();
+
+
+
+  
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
@@ -197,7 +213,9 @@ const Send = memo(() => {
               onChange={(e) => handleChange(e, "receiver")}
             />
           </div>
-          {walletBalance > 0 ? (<button onClick={() => fetch()} className={styles.confirmButton}>{t("send.sendConfirm")}</button>) 
+          {walletBalance > 0 ? (<button disabled={showError} className={styles.confirmButton}>
+              {t("send.sendConfirm")}
+            </button>) 
           : (<button disabled className={styles.confirmButton}>{t("send.notEnoughBNB")}</button>
           )}
         </div>

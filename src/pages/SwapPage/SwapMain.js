@@ -1,10 +1,15 @@
-import React, { lazy, useState } from "react";
-import { swapComponents } from "./linksList";
+import React, { lazy, useState, useContext } from "react";
+import { swapComponentsRU } from "./linksListRU";
+import { swapComponentsEN } from "./linksListEN";
+import { swapComponentsCN } from "./linksListCN";
 import { useTranslation } from "react-i18next";
+import { UserContext } from "../../context/UserContext";
 
 const Send = lazy(() => import("../../components/Send/Send"));
 const Swap = lazy(() => import("../../components/Swap/Swap"));
 const Pool = lazy(() => import("../../components/Pool/Pool"));
+
+
 
 const styles = {
   wrapper: `flex flex-col`,
@@ -35,12 +40,23 @@ const SwapMain = () => {
   const [component, setComponent] = useState("send");
   const { t } = useTranslation();
 
+  const {language} = useContext(UserContext)
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
         <h1 className={styles.title}>{t("swapMain.SMExchange")}</h1>
         <div className={styles.componentButtonContainer}>
-          {swapComponents?.map((link) => (
+          {language === "ru" && swapComponentsRU.map((link) => (
+            <button
+              key={link.id}
+              className={styles.componentButton}
+              onClick={() => setComponent(`${link.component}`)}
+            >
+              {link.name}
+            </button>
+          ))} 
+          {language === "cn" && swapComponentsCN.map((link) => (
             <button
               key={link.id}
               className={styles.componentButton}
@@ -49,6 +65,16 @@ const SwapMain = () => {
               {link.name}
             </button>
           ))}
+          {language === "en" && swapComponentsEN.map((link) => (
+            <button
+              key={link.id}
+              className={styles.componentButton}
+              onClick={() => setComponent(`${link.component}`)}
+            >
+              {link.name}
+            </button>
+          ))}
+          
         </div>
         {component === "send" && <Send />}
         {component === "swap" && <Swap />}

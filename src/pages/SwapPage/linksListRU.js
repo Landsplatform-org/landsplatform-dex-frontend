@@ -1,4 +1,4 @@
-export const swapComponents = [
+export const swapComponentsRU = [
   {
     id: 1,
     name: "Отправить",

@@ -1,6 +1,6 @@
 import image from "../../assets/images/default.jpg";
 
-const offers = [
+const offersRU = [
   {
     id: 1,
     name: "Название собственности",
@@ -23,6 +23,6 @@ const offers = [
   },
 ];
 
-export default offers;
+export default offersRU;
 
 

@@ -7,7 +7,8 @@ export const UserProvider = ({ children }) => {
   const [isAuth, setIsAuth] = useState(false);
   const [txhash, setTxhash] = useState();
   const [walletBalance, setWalletBalance] = useState();
-  const [isMetamask, setIsMetamask] = useState(false)
+  const [isMetamask, setIsMetamask] = useState(false);
+  const [language, setLanguage] = useState("ru");
 
   const web3 = new Web3("https://bsc-dataseed.binance.org/")
 
@@ -89,6 +90,8 @@ export const UserProvider = ({ children }) => {
         txhash,
         getWeiBalance,
         walletBalance,
+        setLanguage,
+        language
       }}
     >
       {children}
