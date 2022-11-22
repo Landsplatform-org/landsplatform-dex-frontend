@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { IoIosArrowForward } from "react-icons/io";
-import { newsList } from "../../pages/News/newsList";
-import { newsList1 } from "../../pages/News/newsList1";
+import { newsList } from "../../pages/NewsPage/newsList";
+import { newsList1 } from "../../pages/NewsPage/newsList1";
 import LastNewsComponent from "../LastNewsComponent/LastNewsComponent";
 import "./styles.css";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { useTranslation } from "react-i18next";
 
@@ -40,14 +40,12 @@ const styles = {
 
 const LastNews = () => {
   const [isRender, setIsRender] = useState(false);
- 
-  useEffect(() => {
-    if(newsList.length > 0) setIsRender(true)
-  }, [isRender])
-  const { t } = useTranslation();
-  
-  const [newsPage, setNewsPage] = useState(false);
 
+  useEffect(() => {
+    if (newsList.length > 0) setIsRender(true);
+  }, [isRender]);
+
+  const { t } = useTranslation();
 
   return (
     <div className={styles.wrapper}>
@@ -55,22 +53,24 @@ const LastNews = () => {
         <div className={styles.lastNews}>
           <div className={styles.title}>
             <h1>{t("lastNews.latestNews")}</h1>
-            
-            <NavLink  onClick={() => setNewsPage(true)} to="/landsplatform-dex-frontend/user-page/news"  type="button" className={styles.watchAllBtn}>
-            {t("lastNews.viewAllNews")}
+            <Link
+              to="/landsplatform-dex-frontend/user-page/news"
+              type="button"
+              className={styles.watchAllBtn}
+            >
+              {t("lastNews.viewAllNews")}
               <span className={styles.watchArrow}>
                 <IoIosArrowForward />
               </span>
-            </NavLink>
-            
+            </Link>
           </div>
-          {isRender &&
+          {isRender && (
             <div className={styles.lastNewsContainer}>
               {newsList?.map((news) => (
                 <LastNewsComponent key={news.id} news={news} />
               ))}
             </div>
-          }
+          )}
         </div>
       </div>
     </div>

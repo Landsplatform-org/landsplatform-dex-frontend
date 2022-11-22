@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import ftxNews from "../../assets/images/news1.png";
 import snoop from "../../assets/images/news2.png";
