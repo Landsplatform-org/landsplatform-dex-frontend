@@ -13,6 +13,7 @@ const UPMain = lazy(() => import("./pages/UPMainPage/UPMain"));
 const Swap = lazy(() => import("./pages/SwapPage/SwapMain"));
 const StackingMain = lazy(() => import("./pages/StackingPage/StackingMain"));
 const Footer = lazy(() => import("./components/Footer/Footer"));
+const News = lazy(()=>(import("./pages/News/News")))
 
 const styles = {
   wrapper: `h-min-screen w-full bg-white text-[#373C3D] select-none flex flex-col items-center overflow-hidden`,
@@ -108,6 +109,14 @@ function App() {
                 element={
                   <RequireAuth>
                     <Projects />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path="/landsplatform-dex-frontend/user-page/news"
+                element={
+                  <RequireAuth>
+                    <News />
                   </RequireAuth>
                 }
               />

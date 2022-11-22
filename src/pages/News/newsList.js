@@ -1,4 +1,7 @@
 import defaultImage from "../../assets/images/news-placeholder.png";
+import ftxNews from "../../assets/images/news1.png";
+import snoop from "../../assets/images/news2.png";
+import btcNews from "../../assets/images/news3.png";
 export const newsList = [
   {
     id: 1,
@@ -7,12 +10,14 @@ export const newsList = [
     description: 'Привлекайте капитал от инвесторов по всему миру, инвестиции с платформой Lands намного доступней. ',
     author: `Анастасия Свеженцева 30 Июля, 2021`
   },
+
   // {
   //   id: 2,
   //   image: defaultImage,
   //   description: 'b'
   // },
   // {
+    //
   //   id: 3,
   //   image: defaultImage,
   //   description: 'c'

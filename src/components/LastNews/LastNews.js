@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { IoIosArrowForward } from "react-icons/io";
-import { newsList } from "../News/newsList";
+import { newsList } from "../../pages/News/newsList";
+import { newsList1 } from "../../pages/News/newsList1";
 import LastNewsComponent from "../LastNewsComponent/LastNewsComponent";
-import "./styles.css"
+import "./styles.css";
+import { NavLink } from "react-router-dom";
 
 import { useTranslation } from "react-i18next";
 
@@ -44,18 +46,23 @@ const LastNews = () => {
   }, [isRender])
   const { t } = useTranslation();
   
+  const [newsPage, setNewsPage] = useState(false);
+
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
         <div className={styles.lastNews}>
           <div className={styles.title}>
             <h1>{t("lastNews.latestNews")}</h1>
-            <button type="button" className={styles.watchAllBtn}>
+            
+            <NavLink  onClick={() => setNewsPage(true)} to="/landsplatform-dex-frontend/user-page/news"  type="button" className={styles.watchAllBtn}>
             {t("lastNews.viewAllNews")}
               <span className={styles.watchArrow}>
                 <IoIosArrowForward />
               </span>
-            </button>
+            </NavLink>
+            
           </div>
           {isRender &&
             <div className={styles.lastNewsContainer}>
