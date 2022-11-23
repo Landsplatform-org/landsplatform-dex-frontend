@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { IoIosArrowForward } from "react-icons/io";
 import { newsList } from "../../pages/News/newsList";
-import { newsList1 } from "../../pages/News/newsList1";
+import { newsList1 } from "../../pages/News/newsAll";
 import LastNewsComponent from "../LastNewsComponent/LastNewsComponent";
 import "./styles.css";
 import { NavLink } from "react-router-dom";
