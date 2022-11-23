@@ -1,8 +1,6 @@
 import React, { memo } from "react";
 import { useTranslation } from "react-i18next";
 
-
-
 const styles = {
   noWalletBackground: `h-screen w-screen flex flex-col justify-center items-center bg-white`,
   installCard: `w-300 h-1/4 flex flex-col justify-center items-center bg-white rounded-2xl p-2`,

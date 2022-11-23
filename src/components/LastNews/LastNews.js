@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { IoIosArrowForward } from "react-icons/io";
-import { newsList } from "../../pages/News/newsList";
-import { newsList1 } from "../../pages/News/newsAll";
+import { newsList } from "../../pages/NewsPage/newsList";
 import LastNewsComponent from "../LastNewsComponent/LastNewsComponent";
 import "./styles.css";
-import { Link } from "react-router-dom";
 
 import { useTranslation } from "react-i18next";
 

@@ -2,6 +2,7 @@ import defaultImage from "../../assets/images/news-placeholder.png";
 import ftxNews from "../../assets/images/news1.png";
 import snoop from "../../assets/images/news2.png";
 import btcNews from "../../assets/images/news3.png";
+
 export const newsAll = [
   {
     id: 1,
