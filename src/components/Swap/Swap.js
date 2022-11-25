@@ -15,7 +15,6 @@ const styles = {
     w-full flex flex-col items-center justify-center mb-36
   `,
   container: `
-    
     w-[1280px] flex justify-center
     phone:w-[360px]
     tablet:w-[750px]
@@ -27,13 +26,13 @@ const styles = {
     phone:w-full phone:m-2
   `,
   formHeader: `
-    px-2 flex items-center justify-between font-semibold text-lg
+    px-2 flex items-center justify-between font-semibold text-lg mb-5
   `,
   transferPropContainer: `
-    p-2 placeholder:text-[#373C3D] outline-none w-full text-md
+    p-2 placeholder:text-[#373C3D] outline-none w-full text-md flex flex-col-reverse gap-5
   `,
   transferPropInput: `
-    bg-[#e6e6e6] p-3 rounded-full placeholder:text-[#abc0c2] outline-none mb-6 w-full text-2xl
+    bg-[#e6e6e6] p-3 rounded-full placeholder:text-[#abc0c2] outline-none w-full text-2xl
   `,
   currencySelector: `
     flex flex-row w-max
@@ -246,8 +245,6 @@ const Swap = memo(() => {
             <div>{t("swap.exchanging")}</div>
           </div>
 
-          <div className={styles.addIcon}></div>
-
           <div className={styles.transferPropContainer}>
             <input
               type="text"
@@ -279,7 +276,7 @@ const Swap = memo(() => {
                 </div>
               </div>
               <span className="p-[10px] font-semibold">
-                {t("swap.balance")}: {walletBalance}
+                {t("swap.balance")}: {walletBalance.substring(0, 6)}
               </span>
             </div>
           </div>
@@ -326,7 +323,7 @@ const Swap = memo(() => {
                 </div>
               </div>
               <span className="p-[10px] font-semibold">
-              {t("swap.balance")}: {walletBalance}
+              {t("swap.balance")}: {walletBalance.substring(0, 6)}
               </span>
               {/* <div className={styles.gasSelector}>
                 <div className={styles.gasSelectorContent}>

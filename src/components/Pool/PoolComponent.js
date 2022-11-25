@@ -113,7 +113,7 @@ const PoolComponent = ({ children }) => {
   
   return (
     <div className="flex justify-center w-full">
-      <div className="w-[894px] phone:w-[350px] h-max flex flex-col justify-self-center mb-36 relative shadow-xl p-6 gap-10 tablet:w-[700px]">
+      <div className="w-[894px] phone:w-[350px] h-max flex flex-col justify-self-center mb-36 relative shadow-3xl p-6 gap-10 tablet:w-[700px] rounded-3xl">
         <div className="flex flex-col ">
           <p className="text-xl font-semibold">{t("poolComponent.yourLiq")}</p>
           <p className="pt-[7px] text-stone-600 text-sm font-[10]">
