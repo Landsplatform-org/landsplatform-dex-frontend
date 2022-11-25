@@ -118,7 +118,11 @@
         "exchanging":"Exchanging",
         "swapConfirm":"Confirm",
         "swapNotEnough":"Not enough",
-        "swapChooseToken":"Select a token"
+        "swapChooseToken":"Select a token",
+        "balance":"Balance",
+        "price":"Price",
+        "acceptableSlip":"Acceptable slip",
+        "per":"for"
     },
     "swapMain":{
         "SMExchange":"Exchange"
@@ -127,7 +131,7 @@
         "read":"Read"
     },
     "news":{
-        "theNews":"News"
+        "theNews":"Latest News"
     },
     "title":{
         "purchaseLands":"Purchase LANDS for further work"

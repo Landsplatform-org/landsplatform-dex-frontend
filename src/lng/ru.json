@@ -119,7 +119,11 @@
         "exchanging":"Обмениваете",
         "swapConfirm":"Подтвердить",
         "swapNotEnough":"Недостаточно",
-        "swapChooseToken":"Выберите токен"
+        "swapChooseToken":"Выберите токен",
+        "balance":"Баланс",
+        "price":"Цена",
+        "acceptableSlip":"Допустимый слипедж",
+        "per":"за"
     },
     "swapMain":{
         "SMExchange":"Обмен"
@@ -128,7 +132,7 @@
         "read":"Читать"
     },
     "news":{
-        "theNews":"BREAKING NEWS!"
+        "theNews":"Последние Новости"
     },
     "title":{
         "purchaseLands":"Приобретите LANDS для дальнейшей работы"

@@ -117,7 +117,12 @@
         "exchanging":"交换",
         "swapConfirm":"确认",
         "swapNotEnough":"币安币不足",
-        "swapChooseToken":"选择一个代币"
+        "swapChooseToken":"选择一个代币",
+        "balance":"钱包余额",
+        "price":"价格",
+        "acceptableSlip":"允许滑移",
+        "per":"根据课程"
+        
     },
     "swapMain":{
         "SMExchange":"交换"

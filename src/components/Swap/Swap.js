@@ -114,14 +114,15 @@ const customstyles = {
 };
 
 const SwapInfo = ({ toToken }) => {
+  const { t } = useTranslation();
   return (
     <div className="flex flex-col">
       <div className="flex flex-row justify-between pt-4">
-        <span className="font-semibold ">Цена:</span>
-        <span>5983754 per {toToken.symbol}</span>
+        <span className="font-semibold ">{t("swap.price")}:</span>
+        <span>78.910 {t("swap.per")} {toToken.symbol}</span>
       </div>
       <div className="flex flex-row justify-between pt-4">
-        <span className="font-semibold">Допустимый слипедж:</span>
+        <span className="font-semibold">{t("swap.acceptableSlip")}:</span>
         <span className="text-[#049ca6] font-bold">0.5%</span>
       </div>
     </div>
@@ -153,7 +154,7 @@ const Swap = memo(() => {
     address: "",
     logoURI:
       "https://psv4.vkuseraudio.net/s/v1/d/MOEpQfoFFspCMVwOLdDjqTH5K7mIKLjrfHg_kkQd-B84m5MxU-nmDSALGnmowxvL0OrrFY4n12x1Dy_QDmg7BFb6NY2XmUqScGmqvvewistqhOqFAOQ3rw/doubts-button.png",
-    symbol: "Выберите токен",
+    symbol: "Select a token",
     decimals: 0,
   });
 
@@ -278,7 +279,7 @@ const Swap = memo(() => {
                 </div>
               </div>
               <span className="p-[10px] font-semibold">
-                Баланс: {walletBalance}
+                {t("swap.balance")}: {walletBalance}
               </span>
             </div>
           </div>
@@ -325,7 +326,7 @@ const Swap = memo(() => {
                 </div>
               </div>
               <span className="p-[10px] font-semibold">
-                Баланс: {walletBalance}
+              {t("swap.balance")}: {walletBalance}
               </span>
               {/* <div className={styles.gasSelector}>
                 <div className={styles.gasSelectorContent}>
