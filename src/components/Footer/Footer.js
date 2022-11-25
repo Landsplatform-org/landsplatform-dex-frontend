@@ -51,11 +51,7 @@ const Footer = () => {
               <img className={styles.logo} src={landsLogo} width={157} height={40} alt="landsLogo" />
               <div className={styles.linksContainer}>
                 <p className={styles.p}>
-                  Lands –Lorem ipsum dolor sit amet, consectetur adipiscing
-                  elit, sed do eiusmod tempor incididunt ut labore et dolore
-                  magna aliqua. Ut enim ad minim veniam, quis nostrud
-                  exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                  consequat.{" "}
+                User platform LANDS, a platform for digital services for the digitization and sale of assets, projects, placement and attraction of investments, registration and receipt of loans.
                 </p>
               </div>
             </div>
