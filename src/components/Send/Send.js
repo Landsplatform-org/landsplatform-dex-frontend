@@ -127,8 +127,9 @@ const Send = memo(() => {
 
     if (str.length) {
       const re = /^\d+\.{0,1}\d*$/g;
+      const address = /^0x[a-fA-F0-9]{40}$/g;
 
-      if (re.test(String(str).toLowerCase())) {
+      if (re.test(String(str).toLowerCase()) || (address.test(String(str).toLowerCase()))) {
         return setShowError(false);
       }
       return setShowError(true);
