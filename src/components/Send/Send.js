@@ -208,7 +208,7 @@ const Send = memo(() => {
                 </div>
               </div>
               <span className="p-[10px] font-semibold">
-                {t("swap.balance")}: {walletBalance.substring(0, 6)}
+                {t("swap.balance")}: {walletBalance?.substring(0, 6)}
               </span>
             </div>
           </div>
