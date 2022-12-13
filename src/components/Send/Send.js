@@ -19,17 +19,18 @@ const styles = {
     laptop:w-[970px]
   `,
   content: `
-    bg-[#eaeaea] border border-[#eeeeee] w-[26rem] rounded-3xl p-4 my-5
+    shadow-3xl
+    bg-[#fafafa] border border-[#eeeeee] w-[26rem] rounded-3xl p-4 my-5
     phone:w-full phone:m-2
   `,
   formHeader: `
     px-2 flex items-center justify-between font-semibold text-lg
   `,
   transferPropContainer: `
-    p-2 placeholder:text-[#373C3D] outline-none w-full text-md
+    p-2 placeholder:text-[#373C3D] outline-none w-full text-md flex flex-col-reverse gap-5
   `,
   transferPropInput: `
-    bg-[#ededed] p-3 rounded-full placeholder:text-[#abc0c2] outline-none mb-6 w-full text-2xl
+    bg-[#ededed] p-3 rounded-full placeholder:text-[#abc0c2] outline-none w-full text-2xl
   `,
   currencySelector: `
     flex flex-row w-max
@@ -79,12 +80,12 @@ const customstyles = {
     backgroundColor: "transparent",
     padding: 0,
     border: "none",
-    zIndex: 100
+    zIndex: 100,
   },
   overlay: {
     backgroundColor: "rgba(10, 11, 13, 0.3)",
     backdropFilter: "blur(2px)",
-    zIndex: 100
+    zIndex: 100,
   },
 };
 
@@ -106,19 +107,19 @@ const Send = memo(() => {
   const [filter, setFilter] = useState("");
 
   const [token, setToken] = useState({
-    symbol: 'BNB',
-    icon: 'binanceSmartChain',
-    contractAddress: '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+    symbol: "BNB",
+    icon: "binanceSmartChain",
+    contractAddress: "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
     decimals: 18,
-  })
+  });
 
   const selectTransferToken = (symbol, icon, address, decimals) => {
     setToken({
       symbol: symbol,
       icon: icon,
       contractAddress: address,
-      decimals: decimals
-    })
+      decimals: decimals,
+    });
 
     setIsShowing(false);
     setFilter("");
@@ -126,13 +127,17 @@ const Send = memo(() => {
 
   const handleChange = (e, name) => {
     const str = e.target.value;
-    
+
     setFormData((prevState) => ({ ...prevState, [name]: e.target.value }));
 
     if (str.length) {
       const re = /^\d+\.{0,1}\d*$/g;
+      const address = /^0x[a-fA-F0-9]{40}$/g;
 
-      if (re.test(String(str).toLowerCase())) {
+      if (
+        re.test(String(str).toLowerCase()) ||
+        address.test(String(str).toLowerCase())
+      ) {
         return setShowError(false);
       }
       return setShowError(true);
@@ -158,17 +163,14 @@ const Send = memo(() => {
   };
 
   useEffect(() => {
-    console.log(token)
-  }, [token])
-  
+    console.log(token);
+  }, [token]);
+
   useEffect(() => {
     getWeiBalance(txhash);
   }, [getWeiBalance, txhash]);
   const { t } = useTranslation();
 
-
-
-  
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
@@ -187,26 +189,31 @@ const Send = memo(() => {
               pattern="^[0-9]*[.,]?[0-9]*$"
               onChange={(e) => handleChange(e, "amount")}
             />
-            <div
-              onClick={() => setIsShowing(true)}
-              className={styles.currencySelector}
-            >
-              <div className={styles.currencySelectorContent}>
-                <div className={styles.currencySelectorTicker}>
-                  <div className={styles.icon}>
-                    <img
-                      width={20}
-                      height={20}
-                      src={require("../../assets/icons/" +
-                        token.icon +
-                        ".png")}
-                      alt=""
-                    />
+            <div className="flex flex-row justify-between">
+              <div
+                onClick={() => setIsShowing(true)}
+                className={styles.currencySelector}
+              >
+                <div className={styles.currencySelectorContent}>
+                  <div className={styles.currencySelectorTicker}>
+                    <div className={styles.icon}>
+                      <img
+                        width={20}
+                        height={20}
+                        src={require("../../assets/icons/" +
+                          token.icon +
+                          ".png")}
+                        alt=""
+                      />
+                    </div>
+                    <div>{token.symbol}</div>
                   </div>
-                  <div>{token.symbol}</div>
+                  <AiOutlineDown className={styles.currencySelectorArrow} />
                 </div>
-                <AiOutlineDown className={styles.currencySelectorArrow} />
               </div>
+              <span className="p-[10px] font-semibold">
+                {t("swap.balance")}: {walletBalance?.substring(0, 6)}
+              </span>
             </div>
           </div>
           <div className={styles.transferPropContainer}>
@@ -217,10 +224,14 @@ const Send = memo(() => {
               onChange={(e) => handleChange(e, "receiver")}
             />
           </div>
-          {walletBalance > 0 ? (<button disabled={showError} className={styles.confirmButton}>
+          {walletBalance > 0 ? (
+            <button disabled={showError} className={styles.confirmButton}>
               {t("send.sendConfirm")}
-            </button>) 
-          : (<button disabled className={styles.confirmButton}>{t("send.notEnoughBNB")}</button>
+            </button>
+          ) : (
+            <button disabled className={styles.confirmButton}>
+              {t("send.notEnoughBNB")}
+            </button>
           )}
         </div>
         <Modal isOpen={!!isShowing} style={customstyles}>
@@ -259,9 +270,7 @@ const Send = memo(() => {
                     <img
                       width={38}
                       height={38}
-                      src={require("../../assets/icons/" +
-                        t.icon +
-                        ".png")}
+                      src={require("../../assets/icons/" + t.icon + ".png")}
                       alt=""
                     />
                   </div>
