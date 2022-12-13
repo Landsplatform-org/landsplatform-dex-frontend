@@ -88,6 +88,10 @@ const customstyles = {
   },
 };
 
+const Sending = () => {
+
+}
+
 const Send = memo(() => {
   const { txhash, getWeiBalance, walletBalance } = useContext(UserContext);
 
