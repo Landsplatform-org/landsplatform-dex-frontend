@@ -1,6 +1,7 @@
 import { lazy, Suspense, useContext } from "react";
 import { Route, BrowserRouter, Routes, Navigate } from "react-router-dom";
 import { UserContext } from "./context/UserContext";
+import { TransactionContext } from "./context/TransactionContext";
 import { ColorRing } from "react-loader-spinner";
 
 const InstallMetamask = lazy(() =>
@@ -17,7 +18,8 @@ const News = lazy(()=>(import("./pages/NewsPage/News")));
 
 const styles = {
   wrapper: `h-min-screen w-full bg-white text-[#373C3D] select-none flex flex-col items-center overflow-hidden`,
-  loaderContainer: `h-screen w-screen flex items-center justify-center`
+  loaderContainer: `h-screen w-screen flex items-center justify-center`,
+  transactionLoader: `w-screen h-screen absolute z-[1000] bg-black/60 flex items-center justify-center`,
 };
 
 function RequireAuth({ children }) {
@@ -42,6 +44,27 @@ function Authed({ children }) {
 
 function App() {
   const { isMetamask } = useContext(UserContext);
+  const { isTransactionLoading } = useContext(TransactionContext);
+
+  const Loader = () => {
+    return (
+      <div className={styles.transactionLoader}>
+        <ColorRing
+          visible={true}
+          height="80"
+          width="80"
+          ariaLabel="blocks-loading"
+          wrapperStyle={{}}
+          wrapperClass="blocks-wrapper"
+          colors={["#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff"]}
+        />
+      </div>
+    );
+  };
+
+  if(isTransactionLoading) {
+    return <Loader />
+  }
 
   return (
     <div className={styles.wrapper}>

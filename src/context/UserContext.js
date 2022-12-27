@@ -10,7 +10,7 @@ export const UserProvider = ({ children }) => {
   const [isMetamask, setIsMetamask] = useState(false);
   const [language, setLanguage] = useState("ru");
 
-  const web3 = new Web3("https://bsc-dataseed.binance.org/")
+  const web3 = new Web3("https://data-seed-prebsc-1-s1.binance.org:8545/")
 
   const getMetamask = useCallback(() => {
     if (typeof window.ethereum !== "undefined") {
@@ -32,7 +32,7 @@ export const UserProvider = ({ children }) => {
       if (accounts.length > 0) {
         const account = accounts[0];
         setTxhash(account);
-        setIsAuth(true);   
+        setIsAuth(true); 
       } 
     } catch (error) {
       console.error(error);
